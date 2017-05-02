@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>海尔中央空调云服务系统</title>
+		<!--<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>-->
+		<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/highcharts.js"></script>
+		<script src="js/highcharts-more.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/solid-gauge.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/energy.js"></script>
+		<script src="js/bar.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/chart-runtime-bar.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/chart-pie-temp.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/chart-run-load.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/chart-nums-4.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="js/poptabs.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+
+	<body>
+		<div class="header">
+			<img class="logo" src="img/logo.png" />
+			<span id="title">海尔中央空调云服务系统</span>
+			<div class="header-right">
+				<div class="nav-num longer">
+					<div class="num">530</div>
+					<div class="dsc"><img src="img/椭圆1拷贝3.png" /> 累计总装机量（台）</div>
+				</div>
+				<div class="nav-num  longer">
+					<div class="num">96.75</div>
+					<div class="dsc"><img src="img/椭圆1拷贝3.png" /> 累计时间（万小时）</div>
+				</div>
+				<div class="nav-num longer">
+					<div class="num">312</div>
+					<div class="dsc"><img src="img/椭圆1拷贝3.png" /> 总运行项目数</div>
+				</div>
+				<div class="nav-num  longer">
+					<div class="num">105.33</div>
+					<div class="dsc"><img src="img/椭圆1拷贝3.png" /> 总制冷量（百万KWH）</div>
+				</div>
+				<div class="nav-num">
+					<div class="num">11.75</div>
+					<div class="dsc"><img src="img/椭圆1拷贝3.png" /> 总能耗（百万KWH）</div>
+				</div>
+			</div>
+
+		</div>
+		<!--<div class="blank"></div>-->
+		<div class="content ">
+			<div class="left">
+				<div class="l-container">
+					<div id="container_pie_sum" class="div-container-1"></div>
+					<div id="container_pie_single" class="div-container-1"></div>
+				</div>
+				<div class="l-container" style="height: 200px;">
+					<div id="container_energy_ave" class="div-container-2"></div>
+					<div id="container_energy_imme" class="div-container-2"></div>
+				</div>
+
+				<div id="container_pie_sum5" class="div-container-line">
+					<!--<img src="img/地图数据_03.png" />-->
+					<img id="line-img" src="img/数据图.png" />
+				</div>
+				<div id="container_bar" class="div-container-3"></div>
+
+			</div>
+			<div class="right">
+				<div class="r-header">
+					<div class="data-num">
+						<div class="num"><span id="data-leiji">9,653,876.1</span></div>
+						<div class="dsc"><img src="img/shop.png" style="visibility: hidden;" /><span>累计节电量</span></div>
+					</div>
+					<div class="data-num">
+						<div class="num "><span id="data-jiudian">2,488,765.9</span></div>
+						<div class="dsc"><img src="img/shop.png" /> <span>酒店行业</span></div>
+					</div>
+					<div class="data-num">
+						<div class="num "><span id="data-yiyuan">756,892.1</span></div>
+						<div class="dsc"><img src="img/yiyuan.png" /> <span>医院行业</span></div>
+					</div>
+					<div class="data-num">
+						<div class="num "><span id="data-bangong">2,267,911.5</span></div>
+						<div class="dsc"><img src="img/bangong.png" /> <span>办公行业</span></div>
+					</div>
+					<div class="data-num">
+						<div class="num "><span id="data-gongchang">886,125.5</span></div>
+						<div class="dsc"><img src="img/gongchang.png" /> <span>工厂行业</span></div>
+					</div>
+					<div class="data-num">
+						<div class="num "><span id="data-shuju">1,012,667.7</span></div>
+						<div class="dsc"><img src="img/shuju.png" /> <span>数据中心行业</span></div>
+					</div>
+					<div class="data-num">
+						<div class="num"><span id="data-qita">1,015,325.1</span></div>
+						<div class="dsc"><img src="img/qita.png" /> <span>其他</span></div>
+					</div>
+					<div class="selected2"></div>
+				</div>
+				<div class="auto-run auto-run-active">行业轮播</div>
+				<img class="map-bg" src="img/background_map.png" />
+				<div class="container-map">
+					<img class="top-clip" src="img/clip.png" />
+					<img class="bottom-clip" src="img/clip.png" />
+					<img class="left-clip" src="img/clip2.png" />
+					<img class="right-clip" src="img/clip2.png" />
+					<a id="map-link" href="http://218.56.32.14:9002/haierV3/login.do?identity=admin&ticket=123456&projectId=820">
+						<img id="data-map" class="data-map" src="img/地图-总数.png" />
+					</a>
+					<div id="container_run_time" class="run-time">
+
+					</div>
+					<div id="container_pie_temp" class="temp-pie">
+
+					</div>
+					<div id="container_run_load" class="run-load">
+
+					</div>
+					<div id="container_run_load_avg" class="run-load-avg">
+
+					</div>
+					<div class="statistics">
+						<img src="img/online.png" />&nbsp;在线人数 &nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;
+						<img src="img/leijiuser.png" />&nbsp;累计用户数 &nbsp;936
+					</div>
+					<div class="run-num-1 run-num-cmn">
+						<span>每天运行时间 H</span>
+						<font id="run-num-day">8.2</font>
+						<div id="chart-num-1" class="chart-num"></div>
+
+					</div>
+					<div class="run-num-2 run-num-cmn">
+						<span>平均运行时间 H</span>
+						<font id="run-num-avg">8.2</font>
+						<div id="chart-num-2" class="chart-num"></div>
+					</div>
+					<div class="run-num-3 run-num-cmn">
+						<span>总耗电量 KWH</span>
+						<font id="run-num-power">8.2</font>
+						<div id="chart-num-3" class="chart-num"></div>
+					</div>
+					<div class="run-num-4 run-num-cmn">
+						<span>总制冷量 KWH</span>
+						<font id="run-num-cold">8.2</font>
+						<div id="chart-num-4" class="chart-num"></div>
+					</div>
+					<div id="btn1" class="img-huizong"></div>
+					<div class="hangye" style="display: none;">
+						<marquee id="affiche" align="left" behavior="scroll" direction="up" height="400" width="250" hspace="0" vspace="0" loop="-1" scrollamount="8" scrolldelay="100" onMouseOut="this.start()" onMouseOver="this.stop()">
+							<p>行业名称 </p>
+							<p>行业名称 </p>
+							<p>行业名称 </p>
+							<p>行业名称 </p>
+							<p>行业名称 </p>
+							<p>行业名称 </p>
+							<p>行业名称 </p>
+						</marquee>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<div id="popup">
+			<div class="close-pop"></div>
+			<div class="pop-title">项目汇总</div>
+			<ul class="pop-sub-title">
+				<li>酒店行业</li>
+				<li>医院行业</li>
+				<li>办公行业</li>
+				<li>工厂行业</li>
+				<li>数据中心行业</li>
+				<li>其它行业</li>
+			</ul>
+			<div class="content" id="hangye-content">
+				<!--<section>
+					<span>祥麟酒店</span>
+					<span>圣爵菲斯酒店</span>
+					<span>山水大酒店</span>
+					<span>平南新兴酒店</span>
+					<span>漳州芗江酒店</span>
+					<span>高安格林豪泰酒店</span>
+					<span>锦城酒店</span>
+					<span>运城宾馆</span>
+					<span>山孚大酒店(水泵变频)</span>
+					<span>汇泉大酒店</span>
+					<span>香港金巴利酒店</span>
+					<span>阿克苏辉煌大酒店</span>
+					
+				</section>-->
+
+			</div>
+
+			<!--<div class="title">
+				<p data-title="Popup Text"></p>
+				<span>x</span>
+			</div>
+			<div class="cont"></div>-->
+		</div>
+		<div id="mask_shadow"></div>
+		<script src="js/popup.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				/**
+				    ifDrag: 是否拖拽
+				    dragLimit: 拖拽限制范围
+				 */
+				$('#popup').popup({
+					ifDrag: true,
+					dragLimit: true
+				});
+			});
+		</script>
+	</body>
+
+</html>
