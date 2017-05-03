@@ -116,8 +116,8 @@ textarea {
 .div-container-line {
 	float: left;
 	width: 500px;
-	/*height: 170px;*/
-	margin: 0 auto;
+	height: 210px;
+	margin: -20px auto -30px;
 }
 
 .div-container-line img {
@@ -333,7 +333,7 @@ textarea {
 
 .temp-pie {
 	position: absolute;
-	top: 135px;
+	top: 140px;
 	right: 238px;
 	width: 250px;
 	height: 200px;
@@ -341,7 +341,7 @@ textarea {
 
 .run-load {
 	position: absolute;
-	top: 160px;
+	top: 165px;
 	right: 135px;
 	width: 100px;
 	height: 150px;
@@ -349,7 +349,7 @@ textarea {
 
 .run-load-avg {
 	position: absolute;
-	top: 160px;
+	top: 165px;
 	right: 30px;
 	width: 100px;
 	height: 150px;
@@ -375,7 +375,7 @@ textarea {
 	color: #fecd00;
 	font-size: 36px;
 	font-family: "lcdd";
-	margin-left: 20px;
+	margin-left: 15px;
 	margin-top: 5px;
 }
 
@@ -402,7 +402,7 @@ textarea {
 .chart-num {
 	position: absolute;
 	bottom: 15px;
-	right: 10px;
+	right: 2px;
 	width: 90px;
 	height: 50px;
 }
@@ -622,7 +622,7 @@ textarea {
 }
 
 #popup .content section :nth-of-type(1) {
-	display: none !important;
+	/*display: none !important;*/
 }
 
 #popup .content section span {

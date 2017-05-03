@@ -21,8 +21,8 @@ function showTempPieChart(param1, param2, param3, param4, param5) {
 			},
 			verticalAlign: 'bottom',
 			y: -25,
-			x:40,
-			floating:true
+			x: 40,
+			floating: true
 		},
 		tooltip: {
 			enabled: false,
@@ -41,8 +41,8 @@ function showTempPieChart(param1, param2, param3, param4, param5) {
 					distance: -18,
 					padding: 0,
 					borderWidth: 0,
-					style:{
-						fontSize:10
+					style: {
+						fontSize: 10
 					}
 				},
 				showInLegend: true,
@@ -96,23 +96,26 @@ function showTempPieChart(param1, param2, param3, param4, param5) {
 			enabled: false
 		},
 		legend: {
-//			align: 'center',
-//			align: 'right',
-//			verticalAlign: 'middle',
+			//			align: 'center',
+			//			align: 'right',
+			//			verticalAlign: 'middle',
 			itemStyle: {
 				'fontSize': '11px',
 				'color': '#A0A0A0'
 			},
-//			x:0,
-//			y: -5,
+			//			x:0,
+			//			y: -5,
 			symbolRadius: 0,
 			align: 'right',
-            verticalAlign: 'top',
-            x: -30,
-            y: 30,
-            floating: true,
-            itemWidth:20,
-            layout: 'vertical',
+			verticalAlign: 'top',
+			x: -30,
+			y: 30,
+			floating: true,
+			itemWidth: 20,
+			layout: 'vertical',
+			itemHoverStyle: {
+				color: '#A0A0A0'
+			}
 		}
 	});
 

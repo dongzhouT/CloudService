@@ -88,7 +88,7 @@ function showBar(param1, param2, param3, param4) {
 				colorByPoint: true,
 				dataLabels: {
 					enabled: true,
-					format: '<span style="font-size:18px;color:#ffffff">{y}</span>',
+					format: '<span style="font-size:18px;color:#e0e0e0">{y}</span>',
 					style: {
 						textOutline: "0px 0x contrast"
 					}

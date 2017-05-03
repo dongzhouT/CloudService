@@ -110,7 +110,10 @@ function showChart(param1, param2) {
 				'color': '#A0A0A0'
 			},
 			y: -80,
-			symbolRadius: 0
+			symbolRadius: 0,
+			itemHoverStyle: {
+				color: '#A0A0A0'
+			}
 		}
 	});
 
@@ -205,7 +208,10 @@ function showChartSingle(param, subtitle, sum, offsetY) {
 					'color': '#A0A0A0'
 				},
 				symbolRadius: 0,
-				y: offsetY
+				y: offsetY,
+				itemHoverStyle: {
+					color: '#A0A0A0'
+				}
 			}
 		});
 	} else {
@@ -294,7 +300,10 @@ function showChartSingle(param, subtitle, sum, offsetY) {
 					'color': '#A0A0A0'
 				},
 				symbolRadius: 0,
-				y: -80
+				y: -80,
+				itemHoverStyle: {
+					color: '#A0A0A0'
+				}
 			}
 		});
 	}

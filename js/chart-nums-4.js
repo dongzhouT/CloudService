@@ -1,5 +1,5 @@
 //右下角四个趋势图
-function showChartNums(id, param1, param2, param3, param4) {
+function showChartNums(id, param1, param2, param3, param4,param5, param6, param7) {
 	$(id).highcharts({
 		chart: {
 			type: 'spline',
@@ -44,7 +44,7 @@ function showChartNums(id, param1, param2, param3, param4) {
 		},
 		series: [{
 			name: '',
-			data: [param1, param2, param3, param4],
+			data: [param1, param2, param3, param4,param5,param6,param7],
 			color: '#267EE4',
 			lineWidth: 2,//线条宽度
 			marker: {

@@ -1,3 +1,4 @@
+//仪表盘，平均能效，即时能效
 var gaugeOptions = {
 
 	chart: {
@@ -117,8 +118,8 @@ function showEnergy(param1, param2) {
 	//即时能效
 	$('#container_energy_imme').highcharts(Highcharts.merge(gaugeOptions, {
 		yAxis: {
-			min: 9,
-			max: 13,
+			min: 7,
+			max: 14,
 			title: {
 				text: param2,
 				style: {
@@ -148,7 +149,7 @@ function showEnergy(param1, param2) {
 
 		series: [{
 			name: '',
-			data: [param2],
+			data: [parseFloat(param2)],
 			//			dataLabels: {
 			//				format: '<div style="text-align:center"><span style="font-size:25px;color:#2883EC">{y:.1f}</div>'
 			//			},

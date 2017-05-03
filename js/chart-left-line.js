@@ -1,5 +1,5 @@
-//每天开关机次数统计
-function showRunTimeBar(param1, param2) {
+//累计制冷量，累计电量
+function showPowerLine(param1, param2) {
 	//'#E6C41D', '#F68A37', '#13CB33', '#BDAEC8'
 	var colors = ['#247bdd'];
 	Highcharts.getOptions().colors = colors;
@@ -17,19 +17,17 @@ function showRunTimeBar(param1, param2) {
 	//			]
 	//		};
 	//	});
-	$('#container_run_time').highcharts({
+
+	var Xdate = ['10', '11', '12', '01', '02', '03', '04'];
+	$('#container_pie_sum5').highcharts({
 		chart: {
-			type: 'column',
+			type: 'area',
 			backgroundColor: 'rgba(0,0,0,0)',
-			marginTop: 30
+			marginTop: 30,
+			spacingRight: 30 //右内边距为30，为X轴右侧title留出空间
 		},
 		title: {
-			text: '开机时间比例',
-			style: {
-				color: '#A0A0A0',
-				fontSize: 9
-			},
-			verticalAlign: 'bottom'
+			text: null
 		},
 		credits: {
 			enabled: false
@@ -38,46 +36,54 @@ function showRunTimeBar(param1, param2) {
 			text: null
 		},
 		xAxis: {
-			categories: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17',
-				'18', '19', '20', '21', '22', '23'
-			],
+			//			categories: XData,
 			gridLineWidth: 0,
+			tickInterval: 1,
 			tickWidth: 0,
 			lineWidth: 0,
 			crosshair: {
 				width: 0
 			},
+			title: {
+				text: '(月)',
+				align: 'high',
+				x: 26,
+				y: -28,
+				style: {
+					color: '#A0A0A0'
+				}
+			},
 			labels: {
+				x: -5,
 				style: {
 					color: '#A0A0A0',
-					fontSize: 9
+					fontSize: '10px'
+				},
+				formatter: function() {
+					return Xdate[this.value]; //X轴起始点在原点				
 				}
 			},
 			showEmpty: true
 		},
 		yAxis: {
 			min: 0,
-			//			max:60,
-			tickInterval: 10,
+			tickInterval: 25,
 			title: {
-				text: '百分比',
+				text: '百万KWH',
 				enabled: true,
 				align: 'high',
 				rotation: 0,
 				y: -15,
 				offset: 0,
-				x: -10,
+				x: 16,
 				style: {
 					color: '#A0A0A0',
 					fontSize: 9
 				}
 			},
-			//			gridLineWidth: 0,
-			//			enabled: false,
 			gridLineWidth: 0,
 			lineWidth: 0,
 			labels: {
-				format: '{value} %',
 				style: {
 					color: '#A0A0A0',
 					fontSize: 9
@@ -97,10 +103,8 @@ function showRunTimeBar(param1, param2) {
 			column: {
 				pointPadding: 0.2,
 				borderWidth: 0,
-				//				pointWidth: 10
 			},
 			series: {
-				//				colorByPoint: true,
 				dataLabels: {
 					enabled: false,
 					format: '<span style="font-size:18px;color:#ffffff">{y}</span>',
@@ -114,12 +118,13 @@ function showRunTimeBar(param1, param2) {
 					}
 				}
 			}
+
 		},
 		legend: {
 			align: 'center',
 			verticalAlign: 'middle',
-			x: 20,
-			y: -50,
+			x: 0,
+			y: -70,
 			itemStyle: {
 				'fontSize': '11px',
 				'color': '#A0A0A0'
@@ -128,26 +133,46 @@ function showRunTimeBar(param1, param2) {
 			symbolRadius: 0,
 			itemHoverStyle: {
 				color: '#A0A0A0'
-			},
-			enabled: false
+			}
 		},
 		series: [{
-			name: '开机',
+			name: '累计制冷量',
 			//				data: [param1, param2, param3, param4]
 			//			data: [120, 230, 330, 430, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23],
 
-			data: param1
-		}, {
-			name: '关机',
-			type: 'line',
 			data: param1,
-			//			data: [12, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23],
-			//				dashStyle: 'dash',
-			color: '#efce21',
+			type: 'area',
+			color: '#FFCB15',
 			marker: {
 				radius: 0,
 				lineWidth: 0,
 				symbol: 'circle'
+			},
+			fillColor: {
+				linearGradient: [0, 0, 0, 130],
+				stops: [
+					[0, '#FFCB15'],
+					[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+				]
+			}
+		}, {
+			name: '累计电量',
+			type: 'area',
+			data: param2,
+			//			data: [12, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23],
+			//				dashStyle: 'dash',
+			color: '#66BCDC',
+			marker: {
+				radius: 0,
+				lineWidth: 0,
+				symbol: 'circle'
+			},
+			fillColor: {
+				linearGradient: [0, 0, 0, 100],
+				stops: [
+					[0, '#66BCDC'],
+					[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+				]
 			}
 		}]
 	});
