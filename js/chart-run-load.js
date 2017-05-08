@@ -20,7 +20,7 @@ function showRunLoadChart(param1, param2) {
 			verticalAlign: 'middle',
 		},
 		subtitle: {
-			text: '运行负荷',
+			text: '即时负荷',
 			style: {
 				color: '#A0A0A0',
 				fontSize: '14px',
@@ -107,7 +107,7 @@ function showRunLoadChart(param1, param2) {
 			verticalAlign: 'middle',
 		},
 		subtitle: {
-			text: '平均运行负荷',
+			text: '平均负荷',
 			style: {
 				color: '#A0A0A0',
 				fontSize: '14px',

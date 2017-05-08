@@ -13,8 +13,7 @@ var openData;
 var openArray;
 var closeData;
 var closeArray;
-//var baseUrl = 'http://218.56.32.14:9002/haierV3/login.do?identity=admin&ticket=123456&projectId=';
-var baseUrl = 'http://218.56.32.14:9002/haierV3/login.do?identity=admin&ticket=123456&deviceId=';
+var baseUrl = 'http://218.56.32.14:9002/haierV3/login.do?identity=haier&ticket=HAIER&deviceId=';
 var auto = 1;
 var interval;
 var bgArray = new Array();
@@ -23,9 +22,9 @@ var mapIntervId;
 //  数据中心：北京三信时代  deviceId:508
 //  工厂：TTI   deviceId:414
 //酒店，医院，办公，工厂，数据中心，其它
-var links = ['507', '507', '507', '414', '508', '507'];
+var links = ['399', '502', '422', '414', '508', '503'];
 
-var open = [1, 2, 3, 1, 5, 3, 30, 20, 24, 10, 1, 1, 2, 5, 9, 7, 6, 2, 1, 8, 7, 1, 1, 0];
+var open = [16.98,14.57,18.16,17.13,21.58,35.59,53.16,66.73,79.6,88.93,92.09,93.02,92.84,96.56,97.69,95.58,90.23,76.27,66.38,47.1,45.14,35.73,24.22,20.76];
 var close = [120, 130, 130, 230, 100, 734, 323, 343, 145, 113, 75, 156, 123, 45, 167, 656, 422, 245, 534, 289, 312, 23, 10, 4];
 $(function() {
 
@@ -33,7 +32,7 @@ $(function() {
 	type = 1;
 	changeType();
 	interval = setInterval('clock()', duration);
-	//			setInterval('requestAjax()', 1000);
+//				setInterval('requestAjax()', 3000);
 	setInterval('requestAjaxFast()', 2000);
 	setInterval('transitionAnimTwo()', 40);
 	//每天开关机统计
@@ -43,17 +42,9 @@ $(function() {
 	//运行负荷
 	showRunLoadChart(67, 37);
 	//右下角四个图表
-	showChartNums("#chart-num-1", 3.5, 3.2, 3, 4);
-	showChartNums("#chart-num-2", 4.6, 4.9, 4.7, 4.8);
-//	showChartNums("#chart-num-3", 4, 4.2, 4.1, 4.5);
-//	showChartNums("#chart-num-4", 4, 4.3, 4.4, 4.6);
+	showChartNums("#chart-num-1", 8.35, 8.36, 8.37, 8.38, 8.40);
+	showChartNums("#chart-num-2", 11.05, 11.06, 11.057, 11.07,11.08);
 
-	//	$('.data-num').hover(function() {
-	//		var index = $(this).index();
-	//		//		alert(index);
-	//		type = index + 1;
-	//		changeType();
-	//	});
 	$('.data-num').on('click', function() {
 		if (auto == 1) {
 			clearInterval(interval);
@@ -97,26 +88,29 @@ $(function() {
 	bgArray.push(bgArr4);
 	bgArray.push(bgArr5);
 	bgArray.push(bgArr6);
-	mapInterval(bgArray[0]);
+	//	mapInterval(bgArray[0]);
 
 	//累计制冷量
-	var coldArr = [75, 85, 90, 95, 100, 110, 120];
+	var coldArr = [95,95.4,96.1,96.5,96.9,100.12,105.33];
 	//累计电量
-	var powerArr = [10, 15, 25, 27, 40, 50, 52];
+	var powerArr = [10.6,10.6,10.7,10.7,10.8,11.1,11.75];
 	showPowerLine(coldArr, powerArr);
+	//	getEcharts();
+
+	//	showMap();
 
 });
 
 function mapInterval(param1) {
-	var mapIndex = 0;
-	mapIntervId = setInterval(function() {
-		if (mapIndex > param1.length) {
-			mapIndex = 0;
-		}
-		$("#data-map").attr("src", param1[mapIndex]);
-		mapIndex++;
-
-	}, 400);
+	//	var mapIndex = 0;
+	//	mapIntervId = setInterval(function() {
+	//		if (mapIndex > 3) {
+	//			mapIndex = 0;
+	//		}
+	//		$("#data-map").attr("src", param1[mapIndex]);
+	//		mapIndex++;
+	//
+	//	}, 400);
 }
 var datasPie = new Array();
 
@@ -194,15 +188,23 @@ function changeData(param) {
 			var tempName = content[item].industryName;
 			var tempArray = tempName.split(',');
 			var contentPerHy = '<section>';
-			
+
 			tempName = '';
-			
+
 			for (var j = 0; j < tempArray.length; j++) {
 				tempName += '<p>' + tempArray[j] + '</p>';
-				contentPerHy += '<span>' + tempArray[j] + '</span>';
-				if (j > 14) {
-					break;
+				var namearr = tempArray[j].split('#');
+				var name = namearr[0];
+				var id = namearr[1];
+				if (namearr.length > 1) {
+					contentPerHy += '<a href="' + baseUrl + id + '"><span title="'+name+'">' + name + '</span></a>';
+				} else {
+					contentPerHy += '<span title="'+namearr+'">' + namearr + '</span>';
 				}
+
+				//				if (j > 14) {
+				//					break;
+				//				}
 			}
 			contentPerHy += '</section>';
 			arrayName[i] = contentPerHy;
@@ -248,22 +250,22 @@ function changeType() {
 
 	duration = 5000;
 	//add by taodzh
-	showChartNums("#chart-num-1", 3.5, 3.2, 3, 4);
-	showChartNums("#chart-num-2", 4.6, 4.9, 4.7, 4.8);
+//	showChartNums("#chart-num-1", 3.5, 3.2, 3, 4);
+//	showChartNums("#chart-num-2", 4.6, 4.9, 4.7, 4.8);
 	//切换地图 add by taodzh
 	clearInterval(mapIntervId);
-	mapInterval(bgArray[type - 1]);
+	//	mapInterval(bgArray[type - 1]);
 	if (type == 1) {
-		$('#map-link').attr('href', baseUrl + links[0]);
+				$('#map-link').attr('href', baseUrl + links[0]);
 		showRunTimeBar(open, close);
-		showTempPieChart(45, 20, 8, 7, 20);
-		showRunLoadChart(38, 62);
-		$('#run-num-day').html(8.2);
-		$('#run-num-avg').html(12.1);
-		$('#run-num-power').html(105.33);
-		$('#run-num-cold').html(11.74);
+		showTempPieChart(137, 32, 24, 22, 4);
+		showRunLoadChart(56, 68);
+		$('#run-num-day').html(9.43);
+		$('#run-num-avg').html(11.05);
+		$('#run-num-power').html(11.75);
+		$('#run-num-cold').html(105.33);
 	} else {
-		$('#map-link').attr('href', baseUrl + links[index]);
+				$('#map-link').attr('href', baseUrl + links[index]);
 		var openIntArray = new Array();
 		var closeIntArray = new Array();
 		openData = obj.data.content[index].action.open;
@@ -287,7 +289,7 @@ function changeType() {
 		var t5 = parseInt(obj.data.content[index].setTemp[5]);
 		showTempPieChart(t1, t2, t3, t4, t5);
 		//运行负荷
-		showRunLoadChart(obj.data.content[index].bear.dayBear,
+		showRunLoadChart(obj.data.content[index].bear.dayBear+parseInt(Math.random()*10-5),
 			obj.data.content[index].bear.aveBear);
 		//			"dayRunTime":8.2,
 		//                  "aveRunTime":2.1,
@@ -298,13 +300,16 @@ function changeType() {
 		$('#run-num-power').html(obj.data.content[index].runTimeEnergy.power);
 		$('#run-num-cold').html(obj.data.content[index].runTimeEnergy.cool);
 	}
+	//切换地图显示
+	$('.china-map').hide();
+	$('#china-map' + type).show();
 	//add end
 
 	if (type == 1) {
 
 		var item = new Object();
 		item.name = '酒店　　';
-		item.y = 45;
+		item.y = 72;
 		datasPie.push(item);
 
 		var item2 = new Object();
@@ -314,49 +319,52 @@ function changeType() {
 
 		var item3 = new Object();
 		item3.name = "办公　　";
-		item3.y = 72;
+		item3.y = 69;
 		datasPie.push(item3);
 
 		var item4 = new Object();
 		item4.name = "工厂";
-		item4.y = 144;
+		item4.y = 120;
 		datasPie.push(item4);
 		var item5 = new Object();
 		item5.name = "数据中心";
 		item5.y = 12;
 		datasPie.push(item5);
 		var item6 = new Object();
-		item6.name = "其他";
+		item6.name = "其它";
 		item6.y = 24;
 		datasPie.push(item6);
 
 		showChartSingle(datasPie, '', 312); //-50无标题  -80 有标题
 		//		$('#data-map').attr('src', 'img/地图-总数.png');
 		//		$('#line-img').attr('src', 'img/总-不带刻度.png');
-		showBar(0, 0, 146, 72);
+		//开机关机数
+		showBar(0, 0, 189, 48);
 		//即时能效
-		showEnergy(aver, '9.0');
-//		showChartNums("#chart-num-3", 8.7, 9.6, 10.09, 10.7, 11.2, 11.64, 11.75);
-//		showChartNums("#chart-num-4", 83.4, 87.5, 90, 92.7, 96.7, 101.2, 105.33);
+//		showEnergy(aver, '9.0');
+		showEnergy('9.0', 10.8);
+		//		showChartNums("#chart-num-3", 8.7, 9.6, 10.09, 10.7, 11.2, 11.64, 11.75);
+		//		showChartNums("#chart-num-4", 83.4, 87.5, 90, 92.7, 96.7, 101.2, 105.33);
 		showChartNums("#chart-num-3", 4.928, 5.236, 5.4824, 5.687733333, 5.872533333, 6.057333333, 6.16);
 		showChartNums("#chart-num-4", 45.36, 48.195, 50.463, 52.353, 54.054, 55.755, 56.7);
 	} else
 	if (type == 2) {
 		var item = new Object();
 		item.name = "在线";
-		item.y = 33;
+		item.y = 53;
 		datasPie.push(item);
 
 		var item2 = new Object();
 		item2.name = "离线";
-		item2.y = 12;
+		item2.y = 19;
 		datasPie.push(item2);
-		showChartSingle(datasPie, '酒店行业项目', 45); //-50无标题  -80 有标题
+		showChartSingle(datasPie, '酒店行业', 72); //-50无标题  -80 有标题
 		//		$('#data-map').attr('src', 'img/地图-酒店.png');
 		//		$('#line-img').attr('src', 'img/酒店-不带刻度.png');
-		showBar(0, 0, 19, 14);
+		showBar(0, 0, 37, 16);
 		//即时能效
-		showEnergy(aver, 10.4);
+//		showEnergy(aver, 10.4);
+		showEnergy(10.4,11.6);
 		showChartNums("#chart-num-3", 1.176, 1.2495, 1.3083, 1.3573, 1.4014, 1.4455, 1.47);
 		showChartNums("#chart-num-4", 12.24, 13.005, 13.617, 14.127, 14.586, 15.045, 15.3);
 	} else if (type == 3) {
@@ -369,18 +377,18 @@ function changeType() {
 		item2.name = "离线";
 		item2.y = 5;
 		datasPie.push(item2);
-		showChartSingle(datasPie, '医院行业项目', 15); //-50无标题  -80 有标题
+		showChartSingle(datasPie, '医院行业', 15); //-50无标题  -80 有标题
 		//		$('#data-map').attr('src', 'img/地图-医院.png');
 		//		$('#line-img').attr('src', 'img/医院-不带刻度.png');
 		showBar(0, 0, 9, 1);
 		//即时能效
-		showEnergy(aver, 9.7);
+		showEnergy(9.7,11.2);
 		showChartNums("#chart-num-3", 0.224, 0.238, 0.2492, 0.258533333, 0.266933333, 0.275333333, 0.28);
 		showChartNums("#chart-num-4", 2.16, 2.295, 2.403, 2.493, 2.574, 2.655, 2.7);
 	} else if (type == 4) {
 		var item = new Object();
 		item.name = "在线";
-		item.y = 50;
+		item.y = 47;
 		datasPie.push(item);
 
 		var item2 = new Object();
@@ -388,30 +396,32 @@ function changeType() {
 		item2.y = 22;
 		datasPie.push(item2);
 
-		showChartSingle(datasPie, '办公行业项目', 72); //-50无标题  -80 有标题
+		showChartSingle(datasPie, '办公行业', 69); //-50无标题  -80 有标题
 		//		$('#data-map').attr('src', 'img/地图-办公.png');
 		//		$('#line-img').attr('src', 'img/办公-不带刻度.png');
-		showBar(0, 0, 43, 7);
+		showBar(0, 0, 39, 8);
 		//即时能效
-		showEnergy(aver, 7.1);
+//		showEnergy(aver, 7.1);
+		showEnergy(7.1,9.5);
 		showChartNums("#chart-num-3", 2.504, 2.6605, 2.7857, 2.890033333, 2.983933333, 3.077833333, 3.13);
 		showChartNums("#chart-num-4", 17.76, 18.87, 19.758, 20.498, 21.164, 21.83, 22.2);
 	} else if (type == 5) {
 		var item = new Object();
 		item.name = "在线";
-		item.y = 101;
+		item.y = 83;
 		datasPie.push(item);
 
 		var item2 = new Object();
 		item2.name = "离线";
-		item2.y = 43;
+		item2.y = 37;
 		datasPie.push(item2);
-		showChartSingle(datasPie, '工厂行业项目', 144); //-50无标题  -80 有标题
+		showChartSingle(datasPie, '工厂行业', 120); //-50无标题  -80 有标题
 		//		$('#data-map').attr('src', 'img/地图-工厂.png');
 		//		$('#line-img').attr('src', 'img/工厂-不带刻度.png');
-		showBar(0, 0, 89, 12);
+		showBar(0, 0, 71, 12);
 		//即时能效
-		showEnergy(aver, 9.2);
+//		showEnergy(aver, 9.2);
+		showEnergy(9.2,10.8);
 		showChartNums("#chart-num-3", 4.928, 5.236, 5.4824, 5.687733333, 5.872533333, 6.057333333, 6.16);
 		showChartNums("#chart-num-4", 45.36, 48.195, 50.463, 52.353, 54.054, 55.755, 56.7);
 	} else if (type == 6) {
@@ -424,12 +434,13 @@ function changeType() {
 		item2.name = "离线";
 		item2.y = 4;
 		datasPie.push(item2);
-		showChartSingle(datasPie, '数据中心行业项目', 12); //-50无标题  -80 有标题
+		showChartSingle(datasPie, '数据中心行业', 12); //-50无标题  -80 有标题
 		//		$('#data-map').attr('src', 'img/地图-数据中心.png');
 		//		$('#line-img').attr('src', 'img/数据中心-不带刻度.png');
-		showBar(0, 0, 5, 3);
+		showBar(0, 0, 8, 0);
 		//即时能效
-		showEnergy(aver, 13.3);
+//		showEnergy(aver, 13.3);
+		showEnergy(13.3,14.3);
 		showChartNums("#chart-num-3", 0.272, 0.289, 0.3026, 0.313933333, 0.324133333, 0.334333333, 0.34);
 		showChartNums("#chart-num-4", 3.624, 3.8505, 4.0317, 4.1827, 4.3186, 4.4545, 4.53);
 	} else if (type == 7) {
@@ -442,13 +453,14 @@ function changeType() {
 		item2.name = "离线";
 		item2.y = 6;
 		datasPie.push(item2);
-		showChartSingle(datasPie, '其他', 24); //-50无标题  -80 有标题
+		showChartSingle(datasPie, '其它', 24); //-50无标题  -80 有标题
 		//		$('#data-map').attr('src', 'img/地图-其他.png');
 		//		$('#line-img').attr('src', 'img/其他-不带刻度.png');
 		showBar(0, 0, 10, 8);
 		//		duration = 10000;
 		//即时能效
-		showEnergy(aver, 10.6);
+//		showEnergy(aver, 10.6);
+		showEnergy(10.6,11.2);
 		showChartNums("#chart-num-3", 0.296, 0.3145, 0.3293, 0.341633333, 0.352733333, 0.363833333, 0.37);
 		showChartNums("#chart-num-4", 3.12, 3.315, 3.471, 3.601, 3.718, 3.835, 3.9);
 	}

@@ -33,11 +33,16 @@ function showTempPieChart(param1, param2, param3, param4, param5) {
 				size: 90,
 				allowPointSelect: true,
 				cursor: 'pointer',
+
 				dataLabels: {
 					enabled: true,
 					color: '#fff',
 					//					connectorColor: '#fff',
-					format: '{point.y}',
+					//					format: '{point.y}',
+					formatter: function() {
+						if (this.percentage > 0)
+							return this.point.y; //这里进行判断（看这里）
+					},
 					distance: -18,
 					padding: 0,
 					borderWidth: 0,

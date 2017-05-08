@@ -2,7 +2,7 @@ var dataProject = new Array();
 var type = 1;
 $(function() {
 
-	showChart(218, 94);
+	showChart(219, 93);
 
 	var datasPie = new Array();
 	var item1 = new Object();

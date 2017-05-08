@@ -29,9 +29,9 @@
 				left: (this.page_w - this.$elem.width()) / 2
 			});
 
-			this.$elem.on('click', function() {
-				return false;
-			});
+//			this.$elem.on('click', function() {
+//				return false;
+//			});
 
 			this.$btn.on('click', function() {
 				self.popbox();
@@ -45,15 +45,15 @@
 				self.closePopbox();
 			});
 
-			this.$close.on('click', function() {
-				self.closePopbox();
+//			this.$close.on('click', function() {
+//				self.closePopbox();
+//
+//				return false;
+//			});
 
-				return false;
-			});
-
-			$(document.body).on('click', function() {
-				self.closePopbox();
-			});
+//			$(document.body).on('click', function() {
+//				self.closePopbox();
+//			});
 
 			// 拖拽事件
 			this.$oTitle.on('mousedown', function(ev) {

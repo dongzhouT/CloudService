@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8" />
-		<title>海尔中央空调云服务系统</title>
+		<title>海尔中央空调智慧节能云服务系统</title>
 		<!--<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>-->
 		<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
@@ -21,20 +21,25 @@
 		<link rel="stylesheet" href="css/style.css" />
 		<script src="js/poptabs.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/chart-left-line.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="js/echarts.min.js" type="text/javascript" charset="utf-8"></script>-->
+
+		<!--<script src="js/china.js" type="text/javascript" charset="utf-8"></script>-->
 
 	</head>
 
 	<body>
 		<div class="header">
+			<img style="width: 150px;position: absolute;right: 46px;top: 16px;" src="img/COSMOPlat Slogan中文.png" />
 			<img class="logo" src="img/logo.png" />
-			<span id="title">海尔中央空调云服务系统</span>
+			<span id="title">海尔中央空调智慧节能云服务系统</span>
 			<div class="header-right">
+				
 				<div class="nav-num longer">
 					<div class="num">530</div>
 					<div class="dsc"><img src="img/椭圆1拷贝3.png" /> 累计总装机量（台）</div>
 				</div>
 				<div class="nav-num  longer">
-					<div class="num">96.75</div>
+					<div class="num">98.63</div>
 					<div class="dsc"><img src="img/椭圆1拷贝3.png" /> 累计时间（万小时）</div>
 				</div>
 				<div class="nav-num longer">
@@ -43,11 +48,13 @@
 				</div>
 				<div class="nav-num  longer">
 					<div class="num">105.33</div>
-					<div class="dsc"><img src="img/椭圆1拷贝3.png" /> 总制冷量（百万KWH）</div>
+					<div class="dsc"><img src="img/椭圆1拷贝3.png" /> 总制冷量（百万kWh）</div>
 				</div>
 				<div class="nav-num">
 					<div class="num">11.75</div>
-					<div class="dsc"><img src="img/椭圆1拷贝3.png" /> 总能耗（百万KWH）</div>
+					<div class="dsc"><img src="img/椭圆1拷贝3.png" /> 总能耗（百万kWh）</div>
+				</div>
+				<div class="nav-num  longer" style="margin-left: 150px;">
 				</div>
 			</div>
 
@@ -59,7 +66,7 @@
 					<div id="container_pie_sum" class="div-container-1"></div>
 					<div id="container_pie_single" class="div-container-1"></div>
 				</div>
-				<div class="l-container" style="height: 200px;">
+				<div class="l-container" style="height: 200px;margin-top: -11px;">
 					<div id="container_energy_ave" class="div-container-2"></div>
 					<div id="container_energy_imme" class="div-container-2"></div>
 				</div>
@@ -74,32 +81,32 @@
 			<div class="right">
 				<div class="r-header">
 					<div class="data-num">
-						<div class="num"><span id="data-leiji">9,653,876.1</span></div>
-						<div class="dsc"><img src="img/shop.png" style="visibility: hidden;" /><span>累计节电量</span></div>
+						<div class="num"><span id="data-leiji">-,---,---.-</span></div>
+						<div class="dsc"><span>累计节电量 <b>kWh</b></span></div>
 					</div>
 					<div class="data-num">
-						<div class="num "><span id="data-jiudian">2,488,765.9</span></div>
+						<div class="num "><span id="data-jiudian">---,---.-</span></div>
 						<div class="dsc"><img src="img/shop.png" /> <span>酒店行业</span></div>
 					</div>
 					<div class="data-num">
-						<div class="num "><span id="data-yiyuan">756,892.1</span></div>
+						<div class="num "><span id="data-yiyuan">---,---.-</span></div>
 						<div class="dsc"><img src="img/yiyuan.png" /> <span>医院行业</span></div>
 					</div>
 					<div class="data-num">
-						<div class="num "><span id="data-bangong">2,267,911.5</span></div>
+						<div class="num "><span id="data-bangong">---,---.-</span></div>
 						<div class="dsc"><img src="img/bangong.png" /> <span>办公行业</span></div>
 					</div>
 					<div class="data-num">
-						<div class="num "><span id="data-gongchang">886,125.5</span></div>
+						<div class="num "><span id="data-gongchang">---,---.-</span></div>
 						<div class="dsc"><img src="img/gongchang.png" /> <span>工厂行业</span></div>
 					</div>
 					<div class="data-num">
-						<div class="num "><span id="data-shuju">1,012,667.7</span></div>
+						<div class="num "><span id="data-shuju">---,---.-</span></div>
 						<div class="dsc"><img src="img/shuju.png" /> <span>数据中心行业</span></div>
 					</div>
 					<div class="data-num">
-						<div class="num"><span id="data-qita">1,015,325.1</span></div>
-						<div class="dsc"><img src="img/qita.png" /> <span>其他</span></div>
+						<div class="num"><span id="data-qita">---,---.-1</span></div>
+						<div class="dsc"><img src="img/qita.png" /> <span>其它</span></div>
 					</div>
 					<div class="selected2"></div>
 				</div>
@@ -110,8 +117,15 @@
 					<img class="bottom-clip" src="img/clip.png" />
 					<img class="left-clip" src="img/clip2.png" />
 					<img class="right-clip" src="img/clip2.png" />
-					<a id="map-link" href="http://218.56.32.14:9002/haierV3/login.do?identity=admin&ticket=123456&projectId=820">
-						<img id="data-map" class="data-map" src="img/全部1.png" />
+					<a id="map-link" href="#">
+						<!--<img id="data-map" class="data-map" src="img/全部1.png" />-->
+						<div class="china-map" id="china-map1"></div>
+						<div class="china-map" id="china-map2"></div>
+						<div class="china-map" id="china-map3"></div>
+						<div class="china-map" id="china-map4"></div>
+						<div class="china-map" id="china-map5"></div>
+						<div class="china-map" id="china-map6"></div>
+						<div class="china-map" id="china-map7"></div>
 					</a>
 					<div id="container_run_time" class="run-time">
 
@@ -136,19 +150,19 @@
 
 					</div>
 					<div class="run-num-2 run-num-cmn">
-						<span>平均运行时间 H</span>
+						<span>日平均运行时间 H</span>
 						<font id="run-num-avg">--</font>
 						<div id="chart-num-2" class="chart-num"></div>
 					</div>
 					<div class="run-num-3 run-num-cmn">
-						<span>总耗电量 百万KWH</span>
-						<font id="run-num-power">--</font>
-						<div id="chart-num-3" class="chart-num"></div>
-					</div>
-					<div class="run-num-4 run-num-cmn">
-						<span>总制冷量 百万KWH</span>
+						<span>总制冷量 百万kWh</span>
 						<font id="run-num-cold">--</font>
 						<div id="chart-num-4" class="chart-num"></div>
+					</div>
+					<div class="run-num-4 run-num-cmn">
+						<span>总耗电量 百万kWh</span>
+						<font id="run-num-power">--</font>
+						<div id="chart-num-3" class="chart-num"></div>
 					</div>
 					<div id="btn1" class="img-huizong"></div>
 					<div class="hangye" style="display: none;">
@@ -168,6 +182,7 @@
 
 		</div>
 		<div id="popup">
+			<div class="title"></div>
 			<div class="close-pop"></div>
 			<div class="pop-title">项目汇总</div>
 			<ul class="pop-sub-title">
@@ -215,7 +230,762 @@
 					ifDrag: true,
 					dragLimit: true
 				});
+//				getEcharts();
+				//加载所有地图
+				//id 关机数 开机数
+				getEcharts('china-map1',48,189,paramArrOn[0],paramArrOff[0]);
+				getEcharts('china-map2',16,37,paramArrOn[1],paramArrOff[1]);
+				getEcharts('china-map3',1,9,paramArrOn[2],paramArrOff[2]);
+				getEcharts('china-map4',8,39,paramArrOn[3],paramArrOff[3]);
+				getEcharts('china-map5',12,89,paramArrOn[4],paramArrOff[4]);
+				getEcharts('china-map6',0,8,paramArrOn[5],paramArrOff[5]);
+				getEcharts('china-map7',8,10,paramArrOn[6],paramArrOff[6]);
 			});
+		</script>
+		<script src="js/echarts.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		var placeList = [
+    {name:'海门', geoCoord:[121.15, 31.89]},
+    {name:'鄂尔多斯', geoCoord:[109.781327, 39.608266]},
+    {name:'招远', geoCoord:[120.38, 37.35]},
+    {name:'齐齐哈尔', geoCoord:[123.97, 47.33]},
+//  {name:'克拉玛依', geoCoord:[86.77, 43.59]},
+    {name:'盐城', geoCoord:[120.13, 33.38]},
+    {name:'赤峰', geoCoord:[118.87, 42.28]},
+    {name:'青岛', geoCoord:[120.33, 36.07]},
+//  {name:'乳山', geoCoord:[121.52, 36.89]},
+    {name:'金昌', geoCoord:[102.188043, 38.520089]},
+    {name:'泉州', geoCoord:[118.58, 24.93]},
+    {name:'莱西', geoCoord:[120.53, 36.86]},
+    {name:'日照', geoCoord:[119.46, 35.42]},
+//  {name:'胶南', geoCoord:[119.97, 35.88]},
+    {name:'南通', geoCoord:[121.05, 32.08]},
+//  {name:'拉萨', geoCoord:[91.11, 29.97]},
+    {name:'云浮', geoCoord:[112.02, 22.93]},
+    {name:'梅州', geoCoord:[116.1, 24.55]},
+    {name:'文登', geoCoord:[122.05, 37.2]},
+    {name:'上海', geoCoord:[121.48, 31.22]},
+    {name:'攀枝花', geoCoord:[101.718637, 26.582347]},
+    {name:'威海', geoCoord:[122.1, 37.5]},
+    {name:'承德', geoCoord:[117.93, 40.97]},
+    {name:'厦门', geoCoord:[118.1, 24.46]},
+    {name:'汕尾', geoCoord:[115.375279, 22.786211]},
+    {name:'潮州', geoCoord:[116.63, 23.68]},
+    {name:'丹东', geoCoord:[124.37, 40.13]},
+    {name:'太仓', geoCoord:[121.1, 31.45]},
+    {name:'曲靖', geoCoord:[103.79, 25.51]},
+    {name:'烟台', geoCoord:[121.39, 37.52]},
+    {name:'福州', geoCoord:[119.3, 26.08]},
+    {name:'瓦房店', geoCoord:[121.979603, 39.627114]},
+    {name:'即墨', geoCoord:[120.45, 36.38]},
+    {name:'抚顺', geoCoord:[123.97, 41.97]},
+    {name:'玉溪', geoCoord:[102.52, 24.35]},
+    {name:'张家口', geoCoord:[114.87, 40.82]},
+    {name:'阳泉', geoCoord:[113.57, 37.85]},
+    {name:'莱州', geoCoord:[119.942327, 37.177017]},
+    {name:'湖州', geoCoord:[120.1, 30.86]},
+//  {name:'汕头', geoCoord:[116.69, 23.39]},
+    {name:'昆山', geoCoord:[120.95, 31.39]},
+    {name:'宁波', geoCoord:[121.56, 29.86]},
+    {name:'湛江', geoCoord:[110.359377, 21.270708]},
+    {name:'揭阳', geoCoord:[116.35, 23.55]},
+    {name:'荣成', geoCoord:[122.41, 37.16]},
+    {name:'连云港', geoCoord:[119.16, 34.59]},
+    {name:'葫芦岛', geoCoord:[120.836932, 40.711052]},
+    {name:'常熟', geoCoord:[120.74, 31.64]},
+    {name:'东莞', geoCoord:[113.75, 23.04]},
+    {name:'河源', geoCoord:[114.68, 23.73]},
+    {name:'淮安', geoCoord:[119.15, 33.5]},
+    {name:'泰州', geoCoord:[119.9, 32.49]},
+//  {name:'南宁', geoCoord:[108.33, 22.84]},
+    {name:'营口', geoCoord:[122.18, 40.65]},
+    {name:'惠州', geoCoord:[114.4, 23.09]},
+    {name:'江阴', geoCoord:[120.26, 31.91]},
+    {name:'蓬莱', geoCoord:[120.75, 37.8]},
+    {name:'韶关', geoCoord:[113.62, 24.84]},
+    {name:'嘉峪关', geoCoord:[98.289152, 39.77313]},
+    {name:'广州', geoCoord:[113.23, 23.16]},
+    {name:'延安', geoCoord:[109.47, 36.6]},
+    {name:'太原', geoCoord:[112.53, 37.87]},
+    {name:'清远', geoCoord:[113.01, 23.7]},
+    {name:'中山', geoCoord:[113.38, 22.52]},
+    {name:'昆明', geoCoord:[102.73, 25.04]},
+    {name:'寿光', geoCoord:[118.73, 36.86]},
+    {name:'盘锦', geoCoord:[122.070714, 41.119997]},
+    {name:'长治', geoCoord:[113.08, 36.18]},
+    {name:'深圳', geoCoord:[114.07, 22.62]},
+    {name:'珠海', geoCoord:[113.52, 22.3]},
+    {name:'宿迁', geoCoord:[118.3, 33.96]},
+    {name:'咸阳', geoCoord:[108.72, 34.36]},
+    {name:'铜川', geoCoord:[109.11, 35.09]},
+    {name:'平度', geoCoord:[119.97, 36.77]},
+    {name:'佛山', geoCoord:[113.11, 23.05]},
+    {name:'海口', geoCoord:[110.35, 20.02]},
+    {name:'江门', geoCoord:[113.06, 22.61]},
+    {name:'章丘', geoCoord:[117.53, 36.72]},
+    {name:'肇庆', geoCoord:[112.44, 23.05]},
+    {name:'大连', geoCoord:[121.62, 38.92]},
+    {name:'临汾', geoCoord:[111.5, 36.08]},
+    {name:'吴江', geoCoord:[120.63, 31.16]},
+    {name:'石嘴山', geoCoord:[106.39, 39.04]},
+    {name:'沈阳', geoCoord:[123.38, 41.8]},
+    {name:'苏州', geoCoord:[120.62, 31.32]},
+    {name:'茂名', geoCoord:[110.88, 21.68]},
+    {name:'嘉兴', geoCoord:[120.76, 30.77]},
+    {name:'长春', geoCoord:[125.35, 43.88]},
+    {name:'胶州', geoCoord:[120.03336, 36.264622]},
+    {name:'银川', geoCoord:[106.27, 38.47]},
+    {name:'张家港', geoCoord:[120.555821, 31.875428]},
+    {name:'三门峡', geoCoord:[111.19, 34.76]},
+    {name:'锦州', geoCoord:[121.15, 41.13]},
+    {name:'南昌', geoCoord:[115.89, 28.68]},
+    {name:'柳州', geoCoord:[109.4, 24.33]},
+//  {name:'三亚', geoCoord:[109.511909, 18.252847]},
+    {name:'自贡', geoCoord:[104.778442, 29.33903]},
+    {name:'吉林', geoCoord:[126.57, 43.87]},
+    {name:'阳江', geoCoord:[111.95, 21.85]},
+    {name:'泸州', geoCoord:[105.39, 28.91]},
+    {name:'西宁', geoCoord:[101.74, 36.56]},
+    {name:'宜宾', geoCoord:[104.56, 29.77]},
+    {name:'呼和浩特', geoCoord:[111.65, 40.82]},
+    {name:'成都', geoCoord:[104.06, 30.67]},
+    {name:'大同', geoCoord:[113.3, 40.12]},
+    {name:'镇江', geoCoord:[119.44, 32.2]},
+    {name:'桂林', geoCoord:[110.28, 25.29]},
+    {name:'张家界', geoCoord:[110.479191, 29.117096]},
+    {name:'宜兴', geoCoord:[119.82, 31.36]},
+//  {name:'北海', geoCoord:[109.12, 21.49]},
+    {name:'西安', geoCoord:[108.95, 34.27]},
+    {name:'金坛', geoCoord:[119.56, 31.74]},
+    {name:'东营', geoCoord:[118.49, 37.46]},
+    {name:'牡丹江', geoCoord:[129.58, 44.6]},
+    {name:'遵义', geoCoord:[106.9, 27.7]},
+    {name:'绍兴', geoCoord:[120.58, 30.01]},
+    {name:'扬州', geoCoord:[119.42, 32.39]},
+    {name:'常州', geoCoord:[119.95, 31.79]},
+    {name:'潍坊', geoCoord:[119.1, 36.62]},
+    {name:'重庆', geoCoord:[106.54, 29.59]},
+    {name:'台州', geoCoord:[121.420757, 28.656386]},
+    {name:'南京', geoCoord:[118.78, 32.04]},
+    {name:'滨州', geoCoord:[118.03, 37.36]},
+    {name:'贵阳', geoCoord:[106.71, 26.57]},
+    {name:'无锡', geoCoord:[120.29, 31.59]},
+    {name:'本溪', geoCoord:[123.73, 41.3]},
+    {name:'渭南', geoCoord:[109.5, 34.52]},
+    {name:'马鞍山', geoCoord:[118.48, 31.56]},
+    {name:'宝鸡', geoCoord:[107.15, 34.38]},
+    {name:'焦作', geoCoord:[113.21, 35.24]},
+    {name:'句容', geoCoord:[119.16, 31.95]},
+    {name:'北京', geoCoord:[116.46, 39.92]},
+    {name:'徐州', geoCoord:[117.2, 34.26]},
+    {name:'衡水', geoCoord:[115.72, 37.72]},
+    {name:'包头', geoCoord:[110, 40.58]},
+    {name:'绵阳', geoCoord:[104.73, 31.48]},
+    {name:'乌鲁木齐', geoCoord:[87.68, 43.77]},
+    {name:'枣庄', geoCoord:[117.57, 34.86]},
+    {name:'杭州', geoCoord:[120.19, 30.26]},
+    {name:'淄博', geoCoord:[118.05, 36.78]},
+    {name:'鞍山', geoCoord:[122.85, 41.12]},
+    {name:'溧阳', geoCoord:[119.48, 31.43]},
+    {name:'库尔勒', geoCoord:[86.06, 41.68]},
+    {name:'安阳', geoCoord:[114.35, 36.1]},
+    {name:'开封', geoCoord:[114.35, 34.79]},
+    {name:'济南', geoCoord:[117, 36.65]},
+    {name:'德阳', geoCoord:[104.37, 31.13]},
+    {name:'温州', geoCoord:[120.65, 28.01]},
+    {name:'九江', geoCoord:[115.97, 29.71]},
+    {name:'邯郸', geoCoord:[114.47, 36.6]},
+    {name:'临安', geoCoord:[119.72, 30.23]},
+    {name:'兰州', geoCoord:[103.73, 36.03]},
+    {name:'沧州', geoCoord:[116.83, 38.33]},
+    {name:'临沂', geoCoord:[118.35, 35.05]},
+    {name:'南充', geoCoord:[106.110698, 30.837793]},
+    {name:'天津', geoCoord:[117.2, 39.13]},
+    {name:'富阳', geoCoord:[119.95, 30.07]},
+    {name:'泰安', geoCoord:[117.13, 36.18]},
+    {name:'诸暨', geoCoord:[120.23, 29.71]},
+    {name:'郑州', geoCoord:[113.65, 34.76]},
+    {name:'哈尔滨', geoCoord:[126.63, 45.75]},
+    {name:'聊城', geoCoord:[115.97, 36.45]},
+    {name:'芜湖', geoCoord:[118.38, 31.33]},
+    {name:'唐山', geoCoord:[118.02, 39.63]},
+    {name:'平顶山', geoCoord:[113.29, 33.75]},
+    {name:'邢台', geoCoord:[114.48, 37.05]},
+    {name:'德州', geoCoord:[116.29, 37.45]},
+    {name:'济宁', geoCoord:[116.59, 35.38]},
+    {name:'荆州', geoCoord:[112.239741, 30.335165]},
+    {name:'宜昌', geoCoord:[111.3, 30.7]},
+    {name:'义乌', geoCoord:[120.06, 29.32]},
+    {name:'丽水', geoCoord:[119.92, 28.45]},
+    {name:'洛阳', geoCoord:[112.44, 34.7]},
+    {name:'秦皇岛', geoCoord:[119.57, 39.95]},
+    {name:'株洲', geoCoord:[113.16, 27.83]},
+    {name:'石家庄', geoCoord:[114.48, 38.03]},
+    {name:'莱芜', geoCoord:[117.67, 36.19]},
+    {name:'常德', geoCoord:[111.69, 29.05]},
+    {name:'保定', geoCoord:[115.48, 38.85]},
+    {name:'湘潭', geoCoord:[112.91, 27.87]},
+    {name:'金华', geoCoord:[119.64, 29.12]},
+    {name:'岳阳', geoCoord:[113.09, 29.37]},
+    {name:'长沙', geoCoord:[113, 28.21]},
+    {name:'衢州', geoCoord:[118.88, 28.97]},
+    {name:'廊坊', geoCoord:[116.7, 39.53]},
+    {name:'菏泽', geoCoord:[115.480656, 35.23375]},
+    {name:'合肥', geoCoord:[117.27, 31.86]},
+    {name:'武汉', geoCoord:[114.31, 30.52]},
+    {name:'大庆', geoCoord:[125.03, 46.58]}
+	];
+	var placeList1=[{name:'广州', geoCoord:[113.23, 23.16]},
+{name:'长沙', geoCoord:[113, 28.21]},
+{name:'南京', geoCoord:[118.78, 32.04]},
+{name:'南宁', geoCoord:[108.33, 22.84]},
+{name:'厦门', geoCoord:[118.1, 24.46]},
+{name:'南昌', geoCoord:[115.89, 28.68]},
+{name:'深圳', geoCoord:[114.07, 22.62]},
+{name:'太原', geoCoord:[112.53, 37.87]},
+{name:'青岛', geoCoord:[120.33, 36.07]},
+{name:'克拉玛依', geoCoord:[86.77, 43.59]},
+{name:'胶南', geoCoord:[119.97, 35.88]},
+{name:'重庆', geoCoord:[106.54, 29.59]},
+{name:'徐州', geoCoord:[117.2, 34.26]},
+{name:'广州', geoCoord:[113.23, 23.16]},
+{name:'南通', geoCoord:[121.05, 32.08]},
+{name:'南京', geoCoord:[118.78, 32.04]},
+{name:'郑州', geoCoord:[113.65, 34.76]},
+{name:'九江', geoCoord:[115.97, 29.71]},
+{name:'郑州', geoCoord:[113.57,34.82]},
+{name:'北京', geoCoord:[116.46, 39.92]},
+{name:'上海', geoCoord:[121.48, 31.22]},
+{name:'攀枝花', geoCoord:[101.718637, 26.582347]},
+{name:'广州', geoCoord:[113.23, 23.16]},
+{name:'石家庄', geoCoord:[114.48, 38.03]},
+	{name:'香港', geoCoord:[114.10, 22.20]},
+{name:'天津', geoCoord:[117.2, 39.13]},
+{name:'太原', geoCoord:[112.53, 37.87]},
+{name:'广州', geoCoord:[113.23, 23.16]},
+{name:'烟台', geoCoord:[121.39, 37.52]},
+{name:'郑州', geoCoord:[113.65, 34.76]},
+{name:'银川', geoCoord:[106.27, 38.47]},
+{name:'杭州', geoCoord:[120.19, 30.26]},
+	{name:'石家庄', geoCoord:[114.5398,37.993423]},
+	{name:'徐州', geoCoord:[117.315347,34.269591]},
+	{name:'东莞', geoCoord:[113.75, 23.04]},
+	{name:'济宁', geoCoord:[116.599601,35.446385]},
+	{name:'东莞', geoCoord:[113.75, 23.04]},
+	{name:'香港', geoCoord:[114.10, 22.20]},
+	{name:'成都', geoCoord:[104.072366,30.669013]},
+	{name:'深圳', geoCoord:[114.07, 22.62]},
+    {name:'福州', geoCoord:[119.3, 26.08]},
+    {name:'瓦房店', geoCoord:[121.979603, 39.627114]},
+    {name:'即墨', geoCoord:[120.45, 36.38]},
+    {name:'抚顺', geoCoord:[123.97, 41.97]},
+    {name:'玉溪', geoCoord:[102.52, 24.35]},
+    {name:'张家口', geoCoord:[114.87, 40.82]},
+    {name:'阳泉', geoCoord:[113.57, 37.85]},
+    {name:'江阴', geoCoord:[120.26, 31.91]},
+    {name:'蓬莱', geoCoord:[120.75, 37.8]},
+    {name:'韶关', geoCoord:[113.62, 24.84]},
+    {name:'嘉峪关', geoCoord:[98.289152, 39.77313]},
+    {name:'广州', geoCoord:[113.23, 23.16]}
+];
+placeList1=placeList1.concat(placeList.slice(1,-1));
+//酒店 19+14
+	var placeList2_On=[{name:'广州', geoCoord:[113.23, 23.16]},
+	{name:'广州2', geoCoord:[112.918514,23.050869]},
+	{name:'广州3', geoCoord:[113.911968,23.118956]},
+	{name:'广州4', geoCoord:[113.507227,22.8464]},
+{name:'长沙', geoCoord:[113, 28.21]},
+{name:'长沙2', geoCoord:[113.065692,28.997892]},
+{name:'长沙3', geoCoord:[113.617611,28.868411]},
+{name:'长沙4', geoCoord:[112.992103,28.316304]},
+{name:'香港', geoCoord:[113.065692,28.088117]},
+{name:'南京', geoCoord:[118.78, 32.04]},
+{name:'南京2', geoCoord:[118.621676,31.898518]},
+{name:'南京3', geoCoord:[119.173594,32.305692]},
+{name:'南京4', geoCoord:[119.247184,31.867121]},
+{name:'南宁', geoCoord:[108.33, 22.84]},
+{name:'厦门', geoCoord:[118.1, 24.46]},
+{name:'南昌', geoCoord:[115.89, 28.68]},
+{name:'深圳', geoCoord:[114.07, 22.62]},
+{name:'深圳2', geoCoord:[114.070065,22.544843]},
+{name:'太原', geoCoord:[112.53, 37.87]},
+{name:'青岛', geoCoord:[120.33, 36.07]},
+//南方
+{name:'太原', geoCoord:[110.158919,19.74323]},
+{name:'太原', geoCoord:[121.565243,31.205299]},
+{name:'太原', geoCoord:[113.120884,23.067894]},
+{name:'太原', geoCoord:[114.077543,30.681989]},
+{name:'太原', geoCoord:[108.52156,22.863451]},
+{name:'太原', geoCoord:[106.571446,29.465884]},
+{name:'太原', geoCoord:[113.378446,22.863451]},
+{name:'太原', geoCoord:[113.304857,23.067894]},
+{name:'太原', geoCoord:[112.936911,22.931634]},
+{name:'太原', geoCoord:[121.58364,30.999492]},
+{name:'太原', geoCoord:[121.1789,31.315931]},
+{name:'太原', geoCoord:[121.602038,31.078702]},
+{name:'太原', geoCoord:[121.822805,30.983642]},
+{name:'太原', geoCoord:[113.047295,23.356985]},
+{name:'太原', geoCoord:[109.055081,23.373971]},
+{name:'太原', geoCoord:[121.546846,29.867583]},
+{name:'太原', geoCoord:[113.599214,23.101938]},
+{name:'太原', geoCoord:[114.224722,22.57329]},
+//{name:'太原', geoCoord:[106.608241,29.546353]},
+//{name:'太原', geoCoord:[114.224722,22.590375]},
+//{name:'太原', geoCoord:[103.995825,30.650181]},
+//{name:'太原', geoCoord:[117.131495,31.882821]},
+//{name:'太原', geoCoord:[117.131495,31.882821]},
+//{name:'太原', geoCoord:[114.132735,22.556202]},
+//{name:'太原', geoCoord:[119.228786,26.178779]},
+//{name:'太原', geoCoord:[110.214111,19.830307]},
+//{name:'太原', geoCoord:[120.424611,36.125355]},
+//{name:'太原', geoCoord:[113.588984,22.288967]},
+//{name:'太原', geoCoord:[120.170617,30.253713]},
+//{name:'太原', geoCoord:[118.772423,31.947587]},
+//{name:'太原', geoCoord:[119.37341,25.840466]},
+//{name:'太原', geoCoord:[109.750249,19.205071]},
+//{name:'太原', geoCoord:[118.838513,32.002986]},
+//{name:'太原', geoCoord:[114.103298,22.526364]},
+//{name:'太原', geoCoord:[120.615941,31.304149]},
+];//酒店
+var placeList2_Off=[
+    {name:'大连', geoCoord:[121.62, 38.92]},
+{name:'阿克苏', geoCoord:[80.282455,41.171834]},//北方
+{name:'太原', geoCoord:[112.80813,37.866582]},
+{name:'太原', geoCoord:[103.922235,36.17012]},
+{name:'太原', geoCoord:[106.387473,38.548869]},
+{name:'太原', geoCoord:[113.636008,34.755284]},
+{name:'太原', geoCoord:[120.479803,36.259574]},
+{name:'太原', geoCoord:[121.068516,29.17566]},
+{name:'太原', geoCoord:[114.703051,38.055945]},
+{name:'太原', geoCoord:[122.209148,37.236728]},
+{name:'太原', geoCoord:[122.209148,37.236728]},
+{name:'太原', geoCoord:[113.304857,34.664126]},
+{name:'太原', geoCoord:[120.443008,36.259574]},
+{name:'太原', geoCoord:[120.038267,36.140279]},
+{name:'太原', geoCoord:[114.187927,23.067894]},
+{name:'太原', geoCoord:[120.424611,36.21486]},
+{name:'太原', geoCoord:[120.332624,36.259574]},
+//{name:'太原', geoCoord:[117.131495,31.882821]},
+//{name:'太原', geoCoord:[120.424611,36.125355]},
+//{name:'太原', geoCoord:[113.556789,34.658457]},
+//{name:'太原', geoCoord:[121.651599,38.975638]},
+//{name:'太原', geoCoord:[112.152661,32.044421]},
+//{name:'太原', geoCoord:[109.466465,36.581498]},
+//{name:'太原', geoCoord:[103.81712,36.064278]},
+//{name:'太原', geoCoord:[108.95263,34.326212]}//end
+//{name:'太原', geoCoord:[112.53, 37.87]},
+//{name:'青岛', geoCoord:[120.33, 36.07]},
+//{name:'克拉玛依', geoCoord:[86.77, 43.59]},
+//{name:'胶南', geoCoord:[119.97, 35.88]},
+//{name:'青岛', geoCoord:[120.33, 36.07]},
+//{name:'北京', geoCoord:[116.452648,39.932705]},
+//{name:'北京', geoCoord:[116.266822,39.851486]},
+//{name:'北京', geoCoord:[116.855535,39.794741]},
+//{name:'北京', geoCoord:[115.862081,39.879841]},
+//{name:'北京', geoCoord:[116.561178,40.752979]},
+//{name:'北京', geoCoord:[117.076303,40.303748]},
+//{name:'北京', geoCoord:[116.634767,40.80892]},
+//{name:'青岛', geoCoord:[120.33, 36.07]},
+//{name:'青岛', geoCoord:[120.645378,36.363806]},
+
+];
+//医院 9+1
+	var placeList3_On=[
+	{name:'重庆', geoCoord:[106.54, 29.59]},
+{name:'徐州', geoCoord:[117.19289,34.197962]},
+{name:'广州', geoCoord:[113.361945,23.123774]},
+{name:'广州', geoCoord:[113.853943,22.948006]},
+{name:'广州', geoCoord:[112.750106,23.458201]},
+{name:'南通', geoCoord:[121.05, 32.08]},
+{name:'南京', geoCoord:[118.78, 32.04]},
+{name:'郑州', geoCoord:[113.65, 34.76]},
+{name:'九江', geoCoord:[115.97, 29.71]},
+    ];
+    var placeList3_Off=[
+{name:'徐州', geoCoord:[114.688485,33.641336]}
+//{name:'徐州', geoCoord:[117.223, 34.2612]},
+//  {name:'邯郸', geoCoord:[114.47, 36.6]},
+//  {name:'临安', geoCoord:[119.72, 30.23]},
+//  {name:'兰州', geoCoord:[103.73, 36.03]},
+//  {name:'沧州', geoCoord:[116.83, 38.33]},
+//  {name:'临沂', geoCoord:[118.35, 35.05]}
+    ];
+    //办公 43+7
+    var placeList4_On=[
+    {name:'青岛', geoCoord:[120.33, 36.07]},
+    {name:'南昌', geoCoord:[115.858779,28.704151]},
+    {name:'南昌', geoCoord:[114.095941,34.5880831]},
+    {name:'南昌', geoCoord:[115.856779,28.708151]},
+    {name:'南昌2', geoCoord:[115.975487,28.559581]},
+    {name:'东莞', geoCoord:[113.75, 23.04]},
+    {name:'东莞', geoCoord:[112.072238,23.016813]},
+    {name:'东莞', geoCoord:[113.985557,23.696277]},
+    {name:'东莞', geoCoord:[114.132735,22.709914]},
+    {name:'东莞', geoCoord:[115.788492,23.323007]},
+    {name:'东莞', geoCoord:[113.875173,24.338474]},
+    {name:'东莞', geoCoord:[111.041989,21.888126]},
+    {name:'宁波', geoCoord:[120.571789,30.379381]},
+    {name:'宁波', geoCoord:[120.90294,29.739215]},
+    {name:'宁波', geoCoord:[121.050119,28.316304]},
+    {name:'宁波', geoCoord:[119.799103,27.892137]},
+    {name:'深圳', geoCoord:[114.059146,22.744048]},
+    {name:'深圳', geoCoord:[113.617611,22.948674]},
+    {name:'深圳', geoCoord:[113.985557,23.696277]},
+    {name:'深圳', geoCoord:[117.554632,24.237291]},
+    {name:'广州', geoCoord:[113.2323, 23.1665]},
+      {name:'深圳', geoCoord:[114.0713, 22.6222]},
+    {name:'深圳', geoCoord:[114.0729, 22.6234]},
+    {name:'广州', geoCoord:[113.2333, 23.1625]},
+    {name:'广州', geoCoord:[113.727995,23.933253]},
+    {name:'广州', geoCoord:[111.925059,23.187008]},
+    {name:'广州', geoCoord:[114.500681,23.492808]},
+    {name:'广州', geoCoord:[114.684654,23.967071]},
+    {name:'广州', geoCoord:[110.011741,20.957862]},
+    {name:'广州', geoCoord:[116.855535,23.933253]},
+    {name:'广州', geoCoord:[112.550568,25.946135]},
+    {name:'广州', geoCoord:[116.450795,28.608961]},
+    {name:'广州', geoCoord:[115.199778,27.302049]},
+    {name:'郑州', geoCoord:[113.5712,34.8212]},
+    {name:'郑州', geoCoord:[113.470432,34.527198]},
+    {name:'郑州', geoCoord:[113.838378,34.922145]},
+    {name:'郑州', geoCoord:[114.868627,34.435786]},
+    {name:'上海', geoCoord:[121.481212, 31.2256]},
+    {name:'上海', geoCoord:[121.123708,31.110367]},
+    {name:'上海', geoCoord:[120.682173,31.426432]},
+    {name:'上海', geoCoord:[121.749216,31.110367]},
+    {name:'上海', geoCoord:[121.528448,30.951934]},
+    {name:'上海', geoCoord:[120.755762,31.331725]},
+   {name:'上海', geoCoord:[120.645378,31.64704]}];
+   var placeList4_Off=[{name:'青岛', geoCoord:[120.684515,36.44084]},
+    {name:'郑州', geoCoord:[112.491394,33.031613]},
+    {name:'北京', geoCoord:[116.56352,40.881286]},
+{name:'北京', geoCoord:[116.968261,39.270176]},
+    {name:'南昌', geoCoord:[114.993426,25.990179]},
+    {name:'南昌2', geoCoord:[114.883042,27.80462]},
+    {name:'东莞', geoCoord:[113.75, 23.04]},
+    {name:'宁波', geoCoord:[121.483672,29.834321]},
+    {name:'深圳', geoCoord:[114.07, 22.62]},
+    {name:'广州', geoCoord:[113.23, 23.16]},
+   {name:'上海', geoCoord:[121.48, 31.22]}];
+   //工厂 71+12
+	var placeList5_On=[
+	{name:'北京', geoCoord:[116.341833,39.859191]},
+{name:'北京', geoCoord:[116.422896,39.856644]},
+{name:'北京', geoCoord:[116.501947,39.87215]},
+{name:'南昌', geoCoord:[116.101246,29.094895]},
+{name:'南昌', geoCoord:[115.990862,28.153363]},
+{name:'南昌', geoCoord:[115.181381,28.5115]},
+{name:'南昌', geoCoord:[115.181381,28.5115]},
+{name:'南昌', geoCoord:[115.770095,26.807872]},
+{name:'南昌', geoCoord:[116.947522,29.320876]},
+{name:'南昌', geoCoord:[116.174835,27.367773]},
+{name:'南昌', geoCoord:[118.529689,25.713025]},
+{name:'南昌', geoCoord:[121.326078,29.707098]},
+    {name:'南昌', geoCoord:[115.854779,28.702151]},
+    {name:'南昌', geoCoord:[115.856779,28.708151]},
+    {name:'南昌2', geoCoord:[115.975487,28.559581]},
+    {name:'东莞', geoCoord:[115.107792,22.982748]},
+    {name:'东莞', geoCoord:[113.75122, 23.0423]},
+    {name:'东莞', geoCoord:[115.659711,23.050869]},
+    {name:'东莞', geoCoord:[120.332624,32.555348]},
+    {name:'东莞', geoCoord:[113.753411, 23.0456]},
+    {name:'东莞', geoCoord:[119.670321,31.331725]},
+    {name:'东莞', geoCoord:[113.7523, 23.0467]},
+    {name:'宁波', geoCoord:[121.546846,29.883617]},
+    {name:'宁波', geoCoord:[121.399667,29.514173]},
+    {name:'宁波', geoCoord:[121.068516,29.883617]},
+    {name:'宁波', geoCoord:[121.418065,30.203753]},
+    {name:'深圳', geoCoord:[114.0712, 22.6208]},
+    {name:'深圳', geoCoord:[114.0711, 22.6204]},
+    {name:'深圳', geoCoord:[114.0743, 22.6212]},
+    {name:'深圳', geoCoord:[114.0709, 22.6234]},
+    {name:'广州', geoCoord:[114.335105,24.03468]},
+    {name:'广州', geoCoord:[114.592668,23.62849]},
+    {name:'广州', geoCoord:[111.869868,22.812291]},
+    {name:'广州', geoCoord:[111.869868,22.812291]},
+    {name:'广州', geoCoord:[113.819981,23.050869]},
+    {name:'广州', geoCoord:[113.270218,23.180763]},
+    {name:'广州', geoCoord:[113.232849,23.114303]},
+    {name:'广州', geoCoord:[113.520306,23.093029]},
+    {name:'广州', geoCoord:[113.520306,23.093029]},
+    {name:'广州', geoCoord:[119.283978,26.245163]},
+    {name:'广州', geoCoord:[118.327319,25.479452]},
+    {name:'广州', geoCoord:[118.437703,25.278881]},
+    {name:'广州', geoCoord:[117.149892,24.03468]},
+    {name:'广州', geoCoord:[119.799103,34.007865]},
+    {name:'广州', geoCoord:[119.799103,34.007865]},
+    {name:'广州', geoCoord:[117.738605,31.552559]},
+    {name:'广州', geoCoord:[115.383751,28.413947]},
+    {name:'广州', geoCoord:[115.383751,28.413947]},
+    {name:'广州', geoCoord:[113.33392,23.133782]},
+    {name:'广州', geoCoord:[113.372266,23.158702]},
+    {name:'南京', geoCoord:[118.78, 32.04]},
+    {name:'南京', geoCoord:[119.523143,31.741425]},
+    {name:'南京', geoCoord:[120.884543,29.739215]},
+    {name:'南京', geoCoord:[119.228786,31.552559]},
+    {name:'南京', geoCoord:[118.235332,32.05534]},
+{name:'南京2', geoCoord:[118.81094,31.979505]},
+{name:'南京3', geoCoord:[118.793692,32.024579]},
+{name:'南京4', geoCoord:[118.792255,32.062042]},
+{name:'杭州', geoCoord:[120.205961,30.273572]},
+{name:'杭州', geoCoord:[120.176353,30.30775]},
+{name:'杭州', geoCoord:[120.306572,30.175212]},
+{name:'杭州', geoCoord:[120.393959,30.422669]},
+{name:'杭州', geoCoord:[120.300823,30.179208]},
+{name:'杭州', geoCoord:[120.300823,30.179208]},
+{name:'杭州', geoCoord:[120.135822,30.366348]},
+	{name:'东莞', geoCoord:[113.75, 23.04]},
+	{name:'东莞', geoCoord:[113.75, 23.04]},
+	{name:'香港', geoCoord:[114.10, 22.20]},
+	{name:'成都', geoCoord:[104.072366,30.669013]},
+	{name:'成都', geoCoord:[106.185103,28.965537]},
+	{name:'成都', geoCoord:[106.185103,28.965537]},
+	{name:'成都', geoCoord:[102.983973,24.540596]},
+	{name:'成都', geoCoord:[104.455757,30.283623]},
+	{name:'成都', geoCoord:[1104.934087,30.920216]},
+	{name:'成都', geoCoord:[106.994584,30.091824]},
+	{name:'成都', geoCoord:[106.994584,30.091824]},
+	{name:'成都', geoCoord:[112.550568,28.80361]},
+	{name:'成都', geoCoord:[113.176076,30.793236]},
+	{name:'成都', geoCoord:[110.784427,27.038762]},
+	{name:'成都', geoCoord:[104.529346,23.899426]},
+	{name:'成都', geoCoord:[110.600454,31.992644]},
+	{name:'成都', geoCoord:[104.101687,30.623251]},
+	{name:'成都', geoCoord:[103.982679,30.674977]},
+	{name:'成都', geoCoord:[104.141931,30.701809]},
+	{name:'成都', geoCoord:[104.050519,30.563095]},
+	{name:'深圳', geoCoord:[114.0711, 22.6209]},
+	{name:'深圳', geoCoord:[114.0722, 22.6207]},
+	{name:'深圳', geoCoord:[114.0732, 22.6205]},
+	{name:'深圳', geoCoord:[114.0712, 22.6234]},
+	{name:'深圳', geoCoord:[114.0745, 22.6211]},
+	{name:'深圳', geoCoord:[114.0712, 22.6222]},
+	{name:'深圳', geoCoord:[114.0743, 22.6234]},
+	{name:'深圳', geoCoord:[114.0756, 22.6205]}];
+	var placeList5_Off=[{name:'郑州', geoCoord:[113.57,34.82]},
+	{name:'郑州', geoCoord:[115.054942,35.78399]},
+	{name:'郑州', geoCoord:[113.583158,34.209561]},
+	 {name:'北京', geoCoord:[116.452648,39.932705]},
+	{name:'济宁', geoCoord:[116.599601,35.446385]},
+{name:'青岛', geoCoord:[120.203843,36.095497]},
+{name:'青岛', geoCoord:[120.203843,36.095497]},
+{name:'北京', geoCoord:[116.501947,39.87215]},
+	{name:'石家庄', geoCoord:[114.5398,37.993423]},
+	{name:'石家庄', geoCoord:[115.054942,37.767037]},
+	{name:'石家庄', geoCoord:[114.576612,36.619018]},
+	{name:'徐州', geoCoord:[117.315347,34.269591]},
+	{name:'徐州', geoCoord:[118.145688,34.148397]},
+	{name:'徐州', geoCoord:[116.63711,34.666856]}];
+	//数据中心5+3
+	var placeList6_On=[
+	{name:'北京', geoCoord:[116.46, 39.92]},
+{name:'上海', geoCoord:[121.48, 31.22]},
+{name:'攀枝花', geoCoord:[101.718637, 26.582347]},
+{name:'广州', geoCoord:[113.23, 23.16]},
+{name:'宁夏', geoCoord:[106.486618,38.482949]},
+//off add
+{name:'北京', geoCoord:[116.140383,40.193501]},
+	{name:'北京', geoCoord:[116.7015,39.967378]},
+	{name:'北京', geoCoord:[116.177177,39.754701]},
+    {name:'佛山', geoCoord:[113.11, 23.05]},
+    {name:'海口', geoCoord:[110.35, 20.02]},
+    {name:'江门', geoCoord:[113.06, 22.61]},
+//  {name:'昆山', geoCoord:[120.95, 31.39]},
+//  {name:'宁波', geoCoord:[121.56, 29.86]},
+//  {name:'湛江', geoCoord:[110.359377, 21.270708]},
+//  {name:'揭阳', geoCoord:[116.35, 23.55]},
+//  {name:'深圳', geoCoord:[114.07, 22.62]},
+//  {name:'珠海', geoCoord:[113.52, 22.3]},
+//  {name:'宿迁', geoCoord:[118.3, 33.96]},
+//  {name:'咸阳', geoCoord:[108.72, 34.36]},
+//  {name:'铜川', geoCoord:[109.11, 35.09]},
+//  {name:'平度', geoCoord:[119.97, 36.77]},
+//  {name:'佛山', geoCoord:[113.11, 23.05]},
+//  {name:'海口', geoCoord:[110.35, 20.02]},
+    {name:'江门', geoCoord:[113.06, 22.61]}];
+    var placeList6_Off=[
+	{name:'北京', geoCoord:[116.140383,40.193501]},
+	{name:'北京', geoCoord:[116.7015,39.967378]},
+	{name:'北京', geoCoord:[116.177177,39.754701]},
+    {name:'佛山', geoCoord:[113.11, 23.05]},
+    {name:'海口', geoCoord:[110.35, 20.02]},
+    {name:'江门', geoCoord:[113.06, 22.61]}];
+    //其他
+	var placeList7_On=[
+	{name:'香港', geoCoord:[114.10, 22.20]},
+{name:'北京', geoCoord:[116.195574,40.432926]},
+{name:'广州', geoCoord:[113.23, 23.16]},
+{name:'广州', geoCoord:[114.077543,24.641533]},
+{name:'广州', geoCoord:[112.237814,23.016813]},
+{name:'广州', geoCoord:[115.459683,22.968771]},
+{name:'杭州', geoCoord:[121.530791,29.372129]},
+{name:'银川', geoCoord:[106.960131,38.058557]},
+{name:'南京', geoCoord:[118.513634,31.88564]},
+    {name:'宿迁', geoCoord:[120.847748,31.64704]},
+    {name:'咸阳', geoCoord:[108.72, 34.36]},
+    {name:'铜川', geoCoord:[109.11, 35.09]},
+    {name:'平度', geoCoord:[119.97, 36.77]},
+    {name:'佛山', geoCoord:[113.11, 23.05]},
+    {name:'海口', geoCoord:[110.35, 20.02]},
+    {name:'江门', geoCoord:[113.06, 22.61]}];
+    var placeList7_Off=[{name:'石家庄', geoCoord:[114.48, 38.03]},
+{name:'天津', geoCoord:[117.2, 39.13]},
+{name:'烟台', geoCoord:[121.39, 37.52]},
+{name:'郑州', geoCoord:[113.65, 34.76]},
+{name:'银川', geoCoord:[106.27, 38.47]},
+{name:'杭州', geoCoord:[120.19, 30.26]},
+    {name:'宿迁', geoCoord:[118.3, 33.96]},
+    {name:'咸阳', geoCoord:[108.72, 34.36]},
+    {name:'铜川', geoCoord:[109.11, 35.09]},
+    {name:'平度', geoCoord:[119.97, 36.77]},
+    {name:'佛山', geoCoord:[113.11, 23.05]},
+    {name:'海口', geoCoord:[110.35, 20.02]},
+    {name:'江门', geoCoord:[113.06, 22.61]}];//其他
+    placeList1_On=placeList2_On.concat(placeList3_On,placeList4_On,placeList5_On,placeList6_On,placeList7_On);
+    placeList1_Off=placeList2_Off.concat(placeList3_Off,placeList4_Off,placeList5_Off,placeList6_Off,placeList7_Off);
+	var paramArrOn=[placeList1_On,placeList2_On,placeList3_On,placeList4_On,placeList5_On,placeList6_On,placeList7_On];
+	var paramArrOff=[placeList1_Off,placeList2_Off,placeList3_Off,placeList4_Off,placeList5_Off,placeList6_Off,placeList7_Off];
+	
+			function getEcharts(domId,param1,param2,arrParamOn,arrParamOff) {
+				require.config({
+					paths: {
+						echarts: './js'
+					}
+				});
+				require(
+					[
+						'echarts',
+						'echarts/chart/map', // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
+					],
+					function(ec) {
+						var myChart = ec.init(document.getElementById(domId));
+						var option = {
+							backgroundColor: 'rgba(255, 255, 255, 0)',
+							color: [
+//								'rgba(255, 255, 255, 0.8)',
+//								'rgba(14, 241, 242, 0.8)',
+//								'rgba(37, 140, 249, 0.8)',
+								'#C5B5D0',
+								'#13CA32'
+							],
+							title: {
+								text: '',
+								subtext: '',
+								x: 'center',
+								textStyle: {
+									color: '#fff'
+								}
+							},
+							legend: {
+								show:false,
+								orient: 'vertical',
+								x: 'left',
+								data: ['强', '中', '弱'],
+								textStyle: {
+									color: '#fff'
+								}
+							},
+							toolbox: {
+								show: false,
+								orient: 'vertical',
+								x: 'right',
+								y: 'center',
+								feature: {
+									mark: {
+										show: true
+									},
+									dataView: {
+										show: true,
+										readOnly: false
+									},
+									restore: {
+										show: true
+									},
+									saveAsImage: {
+										show: true
+									}
+								}
+							},
+							series: [{
+								name: '关机',
+								type: 'map',
+								mapType: 'china',
+								itemStyle: {
+									normal: {
+										borderColor: '#2a4f8b',
+										borderWidth: 2,
+										areaStyle: {
+											color: 'rgba(0, 0, 0, 0)'
+										}
+									}
+								},
+								roam: false,
+								data: [],
+								markPoint: {
+									symbol: 'diamond',
+									symbolSize: 6,
+									large: true,
+									effect: {
+										show: true
+									},
+									data: (function() {
+										var data = [];
+										var len = param1;
+										var geoCoord;
+										while (len--) {
+											data.push({
+												name: arrParamOff[len].name,
+												value: 90,
+												geoCoord: arrParamOff[len].geoCoord
+											})
+										}
+//										while (len--) {
+//											geoCoord = arrParam[len % arrParam.length].geoCoord;
+//											data.push({
+//												name: arrParam[len % arrParam.length].name + len,
+//												value: 90,
+//												geoCoord: [
+//													geoCoord[0]  - 2.5,
+//													geoCoord[1]  + 1.5
+//												]
+//											})
+//										}
+										return data;
+									})()
+								}
+							}, {
+								name: '开机',
+								type: 'map',
+								mapType: 'china',
+								hoverable: false,
+								roam: false,
+								data: [],
+								markPoint: {
+									symbol: 'diamond',
+									symbolSize: 6,
+									large: true,
+									effect: {
+										show: true
+									},
+									data: (function() {
+										var data = [];
+										var len = param2;
+										while (len--) {
+											data.push({
+												name: arrParamOn[len].name,
+												value: 90,
+												geoCoord: arrParamOn[len].geoCoord
+											})
+										}
+										return data;
+									})()
+								}
+							}]
+						};
+						myChart.setOption(option);
+					}
+				);
+			}
 		</script>
 	</body>
 

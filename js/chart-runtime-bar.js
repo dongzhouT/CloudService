@@ -3,6 +3,8 @@ function showRunTimeBar(param1, param2) {
 	//'#E6C41D', '#F68A37', '#13CB33', '#BDAEC8'
 	var colors = ['#247bdd'];
 	Highcharts.getOptions().colors = colors;
+	var Xdate=['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17',
+				'18', '19', '20', '21', '22', '23', '24'];
 	//	Highcharts.getOptions().colors = Highcharts.map(colors, function(color) {
 	//		return {
 	//			linearGradient: {
@@ -21,15 +23,19 @@ function showRunTimeBar(param1, param2) {
 		chart: {
 			type: 'column',
 			backgroundColor: 'rgba(0,0,0,0)',
-			marginTop: 30
+			marginTop: 30,
+			spacingRight: 30 //右内边距为30，为X轴右侧title留出空间
 		},
 		title: {
-			text: '开机时间比例',
+			text: '每天逐时负荷率',
 			style: {
 				color: '#A0A0A0',
 				fontSize: 9
 			},
-			verticalAlign: 'bottom'
+			verticalAlign: 'bottom',
+			align:'center',
+			y:-15,
+			x:30
 		},
 		credits: {
 			enabled: false
@@ -38,9 +44,7 @@ function showRunTimeBar(param1, param2) {
 			text: null
 		},
 		xAxis: {
-			categories: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17',
-				'18', '19', '20', '21', '22', '23'
-			],
+			categories:Xdate ,
 			gridLineWidth: 0,
 			tickWidth: 0,
 			lineWidth: 0,
@@ -48,6 +52,18 @@ function showRunTimeBar(param1, param2) {
 				width: 0
 			},
 			labels: {
+				x: 0,
+				style: {
+					color: '#A0A0A0',
+					fontSize: 9
+				}
+			},
+			title:{
+				text: '时刻',
+//				enabled:false,
+				align:'high',
+				y:-26,
+				x: 25,
 				style: {
 					color: '#A0A0A0',
 					fontSize: 9
@@ -57,16 +73,16 @@ function showRunTimeBar(param1, param2) {
 		},
 		yAxis: {
 			min: 0,
-			//			max:60,
-			tickInterval: 10,
+			max: 100,
+			tickInterval: 20,
 			title: {
-				text: '百分比',
+				text: '平均负荷率',
 				enabled: true,
 				align: 'high',
 				rotation: 0,
 				y: -15,
 				offset: 0,
-				x: -10,
+				x: 18,
 				style: {
 					color: '#A0A0A0',
 					fontSize: 9

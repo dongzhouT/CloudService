@@ -3,7 +3,8 @@ var gaugeOptions = {
 
 	chart: {
 		type: 'solidgauge',
-		backgroundColor: "#0f0f11"
+		backgroundColor: "#0f0f11",
+		marginTop: -10,
 	},
 	pane: {
 		center: ['50%', '60%'],
@@ -74,8 +75,8 @@ function showEnergy(param1, param2) {
 	// 平均能效
 	$('#container_energy_ave').highcharts(Highcharts.merge(gaugeOptions, {
 		yAxis: {
-			min: 11,
-			max: 12,
+			min: 0,
+			max: 15,
 			title: {
 				text: param1,
 				style: {
@@ -98,7 +99,7 @@ function showEnergy(param1, param2) {
 			align: 'center',
 			x: 0,
 			verticalAlign: 'bottom',
-			y: -35
+			y: -45
 		},
 
 		credits: {
@@ -107,7 +108,7 @@ function showEnergy(param1, param2) {
 
 		series: [{
 			name: '',
-			data: [param1],
+			data: [parseFloat(param1)],
 
 			tooltip: {
 				valueSuffix: ''
@@ -118,8 +119,8 @@ function showEnergy(param1, param2) {
 	//即时能效
 	$('#container_energy_imme').highcharts(Highcharts.merge(gaugeOptions, {
 		yAxis: {
-			min: 7,
-			max: 14,
+			min: 0,
+			max: 15,
 			title: {
 				text: param2,
 				style: {
@@ -141,7 +142,7 @@ function showEnergy(param1, param2) {
 			align: 'center',
 			x: 0,
 			verticalAlign: 'bottom',
-			y: -35
+			y: -45
 		},
 		credits: {
 			enabled: false

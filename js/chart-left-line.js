@@ -18,13 +18,14 @@ function showPowerLine(param1, param2) {
 	//		};
 	//	});
 
-	var Xdate = ['10', '11', '12', '01', '02', '03', '04'];
+	var Xdate = ['11', '12', '01', '02', '03', '04', '05'];
 	$('#container_pie_sum5').highcharts({
 		chart: {
 			type: 'area',
 			backgroundColor: 'rgba(0,0,0,0)',
 			marginTop: 30,
-			spacingRight: 30 //右内边距为30，为X轴右侧title留出空间
+			zoomType: 'xy'
+				//			spacingRight: 30 //右内边距为30，为X轴右侧title留出空间
 		},
 		title: {
 			text: null
@@ -47,14 +48,14 @@ function showPowerLine(param1, param2) {
 			title: {
 				text: '(月)',
 				align: 'high',
-				x: 26,
+				x: 10,
 				y: -28,
 				style: {
 					color: '#A0A0A0'
 				}
 			},
 			labels: {
-				x: -5,
+				//				x: -5,
 				style: {
 					color: '#A0A0A0',
 					fontSize: '10px'
@@ -63,19 +64,21 @@ function showPowerLine(param1, param2) {
 					return Xdate[this.value]; //X轴起始点在原点				
 				}
 			},
-			showEmpty: true
+			showEmpty: true,
+			crosshair: true
 		},
-		yAxis: {
-			min: 0,
-			tickInterval: 25,
+		yAxis: [{
+			min: 90,
+			max: 110,
+			tickInterval: 10,
 			title: {
-				text: '百万KWH',
+				text: '百万kWh',
 				enabled: true,
 				align: 'high',
 				rotation: 0,
 				y: -15,
 				offset: 0,
-				x: 16,
+				x: 35,
 				style: {
 					color: '#A0A0A0',
 					fontSize: 9
@@ -87,10 +90,39 @@ function showPowerLine(param1, param2) {
 				style: {
 					color: '#A0A0A0',
 					fontSize: 9
-				}
+				},
+				x: 5
 			},
 			visible: true
-		},
+		}, {
+			min: 9,
+			max: 13,
+			opposite: true,
+			tickInterval: 1,
+			title: {
+				text: '百万kWh',
+				enabled: true,
+				align: 'high',
+				rotation: 0,
+				y: -15,
+				offset: 0,
+				x: -44,
+				style: {
+					color: '#A0A0A0',
+					fontSize: 9
+				}
+			},
+			gridLineWidth: 0,
+			lineWidth: 0,
+			labels: {
+				style: {
+					color: '#A0A0A0',
+					fontSize: 9
+				},
+				x: -5
+			},
+			visible: true
+		}],
 		tooltip: {
 			headerFormat: '<span style="font-size:10px">{point.key}</span>',
 			pointFormat: ':{point.y}',
@@ -123,8 +155,8 @@ function showPowerLine(param1, param2) {
 		legend: {
 			align: 'center',
 			verticalAlign: 'middle',
-			x: 0,
-			y: -70,
+			x: -32,
+			y: -68,
 			itemStyle: {
 				'fontSize': '11px',
 				'color': '#A0A0A0'
@@ -136,44 +168,44 @@ function showPowerLine(param1, param2) {
 			}
 		},
 		series: [{
+			yAxis: 1,
+			name: '累计电量',
+			//			type: 'area',
+			type: 'column',
+			data: param2,
+			color: '#247ADD',
+			marker: {
+				radius: 0,
+				lineWidth: 0,
+				symbol: 'circle'
+			},
+			dataLabels: {
+				useHTML: true,
+				enabled: true,
+//				overflow:'none',
+				format: '<span style="font-size:10px;font-weight:normal;color:#fff">{y}</span>',
+				style: {
+					textOutline: "0px 0x contrast"
+				}
+			}
+		}, {
 			name: '累计制冷量',
-			//				data: [param1, param2, param3, param4]
-			//			data: [120, 230, 330, 430, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23],
-
 			data: param1,
-			type: 'area',
+			//			type: 'column',
+			type: 'spline',
 			color: '#FFCB15',
 			marker: {
 				radius: 0,
 				lineWidth: 0,
 				symbol: 'circle'
-			},
-			fillColor: {
-				linearGradient: [0, 0, 0, 130],
-				stops: [
-					[0, '#FFCB15'],
-					[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-				]
 			}
-		}, {
-			name: '累计电量',
-			type: 'area',
-			data: param2,
-			//			data: [12, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23],
-			//				dashStyle: 'dash',
-			color: '#66BCDC',
-			marker: {
-				radius: 0,
-				lineWidth: 0,
-				symbol: 'circle'
-			},
-			fillColor: {
-				linearGradient: [0, 0, 0, 100],
-				stops: [
-					[0, '#66BCDC'],
-					[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-				]
-			}
+			//			fillColor: {
+			//				linearGradient: [0, 0, 0, 130],
+			//				stops: [
+			//					[0, '#FFCB15'],
+			//					[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+			//				]
+			//			}
 		}]
 	});
 }
