@@ -62,7 +62,7 @@ textarea {
 	padding-top: 10px;
 	position: relative;
 	float: right;
-	padding-right: 53px;
+	padding-right: 100px;
 }
 
 .nav-num {
@@ -114,7 +114,7 @@ textarea {
 
 .div-container-line {
 	float: left;
-	width: 408px;
+	width: 415px;
 	height: 250px;
 	margin: -40px auto -40px;
 	margin-left: 0px;
@@ -240,7 +240,7 @@ textarea {
 	top: 20px;
 	width: 640px;
 	height: 540px;
-	cursor: pointer;
+	cursor: pointer !important;
 }
 
 .data-map {
@@ -336,14 +336,14 @@ textarea {
 .run-time {
 	float: right;
 	margin-right: 20px;
-	margin-top: 10px;
+	margin-top: 32px;
 	width: 440px;
-	height: 180px;
+	height: 220px;
 }
 
 .temp-pie {
 	position: absolute;
-	top: 140px;
+	top: 227px;
 	right: 238px;
 	width: 250px;
 	height: 200px;
@@ -351,7 +351,7 @@ textarea {
 
 .run-load {
 	position: absolute;
-	top: 165px;
+	top: 252px;
 	right: 135px;
 	width: 100px;
 	height: 150px;
@@ -359,7 +359,7 @@ textarea {
 
 .run-load-avg {
 	position: absolute;
-	top: 165px;
+	top: 252px;
 	right: 30px;
 	width: 100px;
 	height: 150px;
@@ -392,21 +392,25 @@ textarea {
 .run-num-1 {
 	bottom: 122px;
 	right: 234px;
+	bottom:14px;
 }
 
 .run-num-2 {
 	bottom: 122px;
 	right: 34px;
+	bottom:14px;
 }
 
 .run-num-3 {
 	bottom: 17px;
 	right: 234px;
+	display: none;
 }
 
 .run-num-4 {
 	bottom: 17px;
 	right: 34px;
+	display: none;
 }
 
 .chart-num {

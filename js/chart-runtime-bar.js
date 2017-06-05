@@ -34,7 +34,7 @@ function showRunTimeBar(param1, param2) {
 			},
 			verticalAlign: 'bottom',
 			align:'center',
-			y:-15,
+			y:-5,
 			x:30
 		},
 		credits: {

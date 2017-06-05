@@ -134,7 +134,7 @@ function showEnergy(param1, param2) {
 			}
 		},
 		title: {
-			text: '即时能效',
+			text: '当日能效',
 			style: {
 				color: '#A0A0A0',
 				fontSize: 14

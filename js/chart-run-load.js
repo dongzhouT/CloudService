@@ -20,13 +20,13 @@ function showRunLoadChart(param1, param2) {
 			verticalAlign: 'middle',
 		},
 		subtitle: {
-			text: '即时负荷',
+			text: '当日负荷',
 			style: {
 				color: '#A0A0A0',
 				fontSize: '14px',
 			},
 			verticalAlign: 'bottom',
-			y: 0
+			y: 3
 		},
 		tooltip: {
 			enabled: false,
@@ -113,7 +113,7 @@ function showRunLoadChart(param1, param2) {
 				fontSize: '14px',
 			},
 			verticalAlign: 'bottom',
-			y: 0
+			y: 3
 		},
 		tooltip: {
 			enabled: false,

@@ -18,7 +18,7 @@ function showPowerLine(param1, param2) {
 	//		};
 	//	});
 
-	var Xdate = ['11', '12', '01', '02', '03', '04', '05'];
+	var Xdate = ['12', '01', '02', '03', '04', '05', '06'];
 	$('#container_pie_sum5').highcharts({
 		chart: {
 			type: 'area',
@@ -48,8 +48,8 @@ function showPowerLine(param1, param2) {
 			title: {
 				text: '(月)',
 				align: 'high',
-				x: 10,
-				y: -28,
+				x: 15,
+				y: -26,
 				style: {
 					color: '#A0A0A0'
 				}
@@ -78,7 +78,7 @@ function showPowerLine(param1, param2) {
 				rotation: 0,
 				y: -15,
 				offset: 0,
-				x: 35,
+				x: 30,
 				style: {
 					color: '#A0A0A0',
 					fontSize: 9
@@ -91,7 +91,7 @@ function showPowerLine(param1, param2) {
 					color: '#A0A0A0',
 					fontSize: 9
 				},
-				x: 5
+				x: 0
 			},
 			visible: true
 		}, {
@@ -106,7 +106,7 @@ function showPowerLine(param1, param2) {
 				rotation: 0,
 				y: -15,
 				offset: 0,
-				x: -44,
+				x: -40,
 				style: {
 					color: '#A0A0A0',
 					fontSize: 9
@@ -119,7 +119,7 @@ function showPowerLine(param1, param2) {
 					color: '#A0A0A0',
 					fontSize: 9
 				},
-				x: -5
+				x: 0
 			},
 			visible: true
 		}],
@@ -182,6 +182,7 @@ function showPowerLine(param1, param2) {
 			dataLabels: {
 				useHTML: true,
 				enabled: true,
+				crop:true,
 //				overflow:'none',
 				format: '<span style="font-size:10px;font-weight:normal;color:#fff">{y}</span>',
 				style: {

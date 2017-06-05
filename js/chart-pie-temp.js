@@ -20,7 +20,7 @@ function showTempPieChart(param1, param2, param3, param4, param5) {
 				fontSize: '14px',
 			},
 			verticalAlign: 'bottom',
-			y: -25,
+			y: -22,
 			x: 40,
 			floating: true
 		},
